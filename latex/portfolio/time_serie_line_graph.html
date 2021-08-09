@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='time_serie_line_graph/time_serie_line_graph.svg' alt='time_serie_line_graph'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span>
+<!--           --><span class="k">\pgfplotsset</span><span class="nb">{</span>
+<!--           -->    compat = 1.17, <span class="c">% to have the same coordinate system between axis and draw</span>
+<!--           --><span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz-network<span class="nb">}</span> <span class="c">% provides graph / network utilities (Edge, Node, etc)</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="k">\input</span><span class="nb">{</span>colors.tex<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;]
+<!--           -->        <span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span> [yscale=0.7,xscale=2.,domain=0:2.1,ymin=-1,samples=200,no markers,hide y axis,xtick=<span class="k">\empty</span>,axis lines=middle,xlabel=<span class="s">$</span><span class="nb">t</span><span class="s">$</span>,]
+<!--           -->         <span class="k">\addplot</span><span class="na">[color=darkblue, ultra thin]</span> <span class="nb">{</span>0.5*cos(deg(5.0*x + 100.0))+0.25*cos(deg(9.0*x + 100.0))+0.1*cos(deg(10*x + 10))+0.2*cos(deg(20.0*x + 0))<span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p0) at (0.10,0.65);
+<!--           -->         <span class="k">\coordinate</span> (p0<span class="nb">_</span>orig) at (0.10,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p0) -- (p0<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>0<span class="nb">}{</span>RGB<span class="nb">}{</span> 182, 64, 45 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_0]</span> at (p0) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p1) at (0.18,0.48);
+<!--           -->         <span class="k">\coordinate</span> (p1<span class="nb">_</span>orig) at (0.18,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p1) -- (p1<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>1<span class="nb">}{</span>RGB<span class="nb">}{</span> 190, 80, 51 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_1]</span> at (p1) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p2) at (0.26,0.49);
+<!--           -->         <span class="k">\coordinate</span> (p2<span class="nb">_</span>orig) at (0.26,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p2) -- (p2<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>2<span class="nb">}{</span>RGB<span class="nb">}{</span> 190, 80, 51 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_2]</span> at (p2) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p3) at (0.34,0.25);
+<!--           -->         <span class="k">\coordinate</span> (p3<span class="nb">_</span>orig) at (0.34,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p3) -- (p3<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>3<span class="nb">}{</span>RGB<span class="nb">}{</span> 203, 105, 62 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_3]</span> at (p3) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p4) at (0.42,-0.34);
+<!--           -->         <span class="k">\coordinate</span> (p4<span class="nb">_</span>orig) at (0.42,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p4) -- (p4<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>4<span class="nb">}{</span>RGB<span class="nb">}{</span> 231, 162, 85 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_4]</span> at (p4) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p5) at (0.50,-0.61);
+<!--           -->         <span class="k">\coordinate</span> (p5<span class="nb">_</span>orig) at (0.50,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p5) -- (p5<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>5<span class="nb">}{</span>RGB<span class="nb">}{</span> 244, 188, 95 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_5]</span> at (p5) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p6) at (0.57,-0.37);
+<!--           -->         <span class="k">\coordinate</span> (p6<span class="nb">_</span>orig) at (0.57,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p6) -- (p6<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>6<span class="nb">}{</span>RGB<span class="nb">}{</span> 234, 167, 87 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_6]</span> at (p6) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p7) at (0.65,-0.20);
+<!--           -->         <span class="k">\coordinate</span> (p7<span class="nb">_</span>orig) at (0.65,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p7) -- (p7<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>7<span class="nb">}{</span>RGB<span class="nb">}{</span> 224, 147, 78 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_7]</span> at (p7) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p8) at (0.73,-0.35);
+<!--           -->         <span class="k">\coordinate</span> (p8<span class="nb">_</span>orig) at (0.73,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p8) -- (p8<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>8<span class="nb">}{</span>RGB<span class="nb">}{</span> 231, 162, 85 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_8]</span> at (p8) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p9) at (0.81,-0.34);
+<!--           -->         <span class="k">\coordinate</span> (p9<span class="nb">_</span>orig) at (0.81,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p9) -- (p9<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>9<span class="nb">}{</span>RGB<span class="nb">}{</span> 231, 162, 85 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_9]</span> at (p9) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p10) at (0.89,-0.06);
+<!--           -->         <span class="k">\coordinate</span> (p10<span class="nb">_</span>orig) at (0.89,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p10) -- (p10<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>10<span class="nb">}{</span>RGB<span class="nb">}{</span> 218, 136, 74 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_10]</span> at (p10) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p11) at (0.97,-0.04);
+<!--           -->         <span class="k">\coordinate</span> (p11<span class="nb">_</span>orig) at (0.97,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p11) -- (p11<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>11<span class="nb">}{</span>RGB<span class="nb">}{</span> 216, 131, 72 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_11]</span> at (p11) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p12) at (1.05,-0.33);
+<!--           -->         <span class="k">\coordinate</span> (p12<span class="nb">_</span>orig) at (1.05,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p12) -- (p12<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>12<span class="nb">}{</span>RGB<span class="nb">}{</span> 231, 162, 85 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_12]</span> at (p12) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p13) at (1.13,-0.29);
+<!--           -->         <span class="k">\coordinate</span> (p13<span class="nb">_</span>orig) at (1.13,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p13) -- (p13<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>13<span class="nb">}{</span>RGB<span class="nb">}{</span> 229, 157, 83 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_13]</span> at (p13) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p14) at (1.21,0.22);
+<!--           -->         <span class="k">\coordinate</span> (p14<span class="nb">_</span>orig) at (1.21,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p14) -- (p14<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>14<span class="nb">}{</span>RGB<span class="nb">}{</span> 203, 105, 62 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_14]</span> at (p14) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p15) at (1.29,0.58);
+<!--           -->         <span class="k">\coordinate</span> (p15<span class="nb">_</span>orig) at (1.29,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p15) -- (p15<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>15<span class="nb">}{</span>RGB<span class="nb">}{</span> 185, 69, 47 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_15]</span> at (p15) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p16) at (1.37,0.57);
+<!--           -->         <span class="k">\coordinate</span> (p16<span class="nb">_</span>orig) at (1.37,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p16) -- (p16<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>16<span class="nb">}{</span>RGB<span class="nb">}{</span> 185, 69, 47 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_16]</span> at (p16) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p17) at (1.45,0.62);
+<!--           -->         <span class="k">\coordinate</span> (p17<span class="nb">_</span>orig) at (1.45,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p17) -- (p17<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>17<span class="nb">}{</span>RGB<span class="nb">}{</span> 182, 64, 45 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_17]</span> at (p17) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p18) at (1.52,0.77);
+<!--           -->         <span class="k">\coordinate</span> (p18<span class="nb">_</span>orig) at (1.52,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p18) -- (p18<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>18<span class="nb">}{</span>RGB<span class="nb">}{</span> 177, 54, 41 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_18]</span> at (p18) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p19) at (1.60,0.45);
+<!--           -->         <span class="k">\coordinate</span> (p19<span class="nb">_</span>orig) at (1.60,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p19) -- (p19<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>19<span class="nb">}{</span>RGB<span class="nb">}{</span> 193, 85, 53 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_19]</span> at (p19) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p20) at (1.68,-0.27);
+<!--           -->         <span class="k">\coordinate</span> (p20<span class="nb">_</span>orig) at (1.68,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p20) -- (p20<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>20<span class="nb">}{</span>RGB<span class="nb">}{</span> 229, 157, 83 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_20]</span> at (p20) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p21) at (1.76,-0.67);
+<!--           -->         <span class="k">\coordinate</span> (p21<span class="nb">_</span>orig) at (1.76,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p21) -- (p21<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>21<span class="nb">}{</span>RGB<span class="nb">}{</span> 247, 193, 97 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_21]</span> at (p21) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p22) at (1.84,-0.57);
+<!--           -->         <span class="k">\coordinate</span> (p22<span class="nb">_</span>orig) at (1.84,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p22) -- (p22<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>22<span class="nb">}{</span>RGB<span class="nb">}{</span> 244, 188, 95 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_22]</span> at (p22) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p23) at (1.92,-0.50);
+<!--           -->         <span class="k">\coordinate</span> (p23<span class="nb">_</span>orig) at (1.92,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p23) -- (p23<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>23<span class="nb">}{</span>RGB<span class="nb">}{</span> 239, 178, 91 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_23]</span> at (p23) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->         <span class="k">\coordinate</span> (p24) at (2.00,-0.57);
+<!--           -->         <span class="k">\coordinate</span> (p24<span class="nb">_</span>orig) at (2.00,0.00);
+<!--           -->         <span class="k">\draw</span><span class="na">[dotted, thin]</span> (p24) -- (p24<span class="nb">_</span>orig);
+<!--           -->         <span class="k">\definecolor</span><span class="nb">{</span>tempcolor<span class="nb">_</span>line<span class="nb">_</span>graph<span class="nb">_</span>24<span class="nb">}{</span>RGB<span class="nb">}{</span> 242, 183, 93 <span class="nb">}</span>;
+<!--           -->         <span class="k">\node</span><span class="na">[ultra thick, color=tempcolor_line_graph_24]</span> at (p24) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
+<!--           -->
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=0.70,y=0.,size=0.2,color={182,64,45},RGB]</span><span class="nb">{</span>0<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=1.21,y=0.,size=0.2,color={190,80,51},RGB]</span><span class="nb">{</span>1<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=1.73,y=0.,size=0.2,color={190,80,51},RGB]</span><span class="nb">{</span>2<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=2.24,y=0.,size=0.2,color={203,105,62},RGB]</span><span class="nb">{</span>3<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=2.75,y=0.,size=0.2,color={231,162,85},RGB]</span><span class="nb">{</span>4<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=3.26,y=0.,size=0.2,color={244,188,95},RGB]</span><span class="nb">{</span>5<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=3.78,y=0.,size=0.2,color={234,167,87},RGB]</span><span class="nb">{</span>6<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=4.29,y=0.,size=0.2,color={224,147,78},RGB]</span><span class="nb">{</span>7<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=4.80,y=0.,size=0.2,color={231,162,85},RGB]</span><span class="nb">{</span>8<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=5.32,y=0.,size=0.2,color={231,162,85},RGB]</span><span class="nb">{</span>9<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=5.83,y=0.,size=0.2,color={218,136,74},RGB]</span><span class="nb">{</span>10<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=6.34,y=0.,size=0.2,color={216,131,72},RGB]</span><span class="nb">{</span>11<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=6.85,y=0.,size=0.2,color={231,162,85},RGB]</span><span class="nb">{</span>12<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=7.37,y=0.,size=0.2,color={229,157,83},RGB]</span><span class="nb">{</span>13<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=7.88,y=0.,size=0.2,color={203,105,62},RGB]</span><span class="nb">{</span>14<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=8.39,y=0.,size=0.2,color={185,69,47},RGB]</span><span class="nb">{</span>15<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=8.91,y=0.,size=0.2,color={185,69,47},RGB]</span><span class="nb">{</span>16<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=9.42,y=0.,size=0.2,color={182,64,45},RGB]</span><span class="nb">{</span>17<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=9.93,y=0.,size=0.2,color={177,54,41},RGB]</span><span class="nb">{</span>18<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=10.44,y=0.,size=0.2,color={193,85,53},RGB]</span><span class="nb">{</span>19<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=10.96,y=0.,size=0.2,color={229,157,83},RGB]</span><span class="nb">{</span>20<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=11.47,y=0.,size=0.2,color={247,193,97},RGB]</span><span class="nb">{</span>21<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=11.98,y=0.,size=0.2,color={244,188,95},RGB]</span><span class="nb">{</span>22<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=12.49,y=0.,size=0.2,color={239,178,91},RGB]</span><span class="nb">{</span>23<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=13.01,y=0.,size=0.2,color={242,183,93},RGB]</span><span class="nb">{</span>24<span class="nb">}</span>
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(0)(1)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(1)(2)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(2)(3)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(3)(4)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(4)(5)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(5)(6)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(6)(7)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(7)(8)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(8)(9)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(9)(10)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(10)(11)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(11)(12)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(12)(13)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(13)(14)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(14)(15)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(15)(16)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(16)(17)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(17)(18)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(18)(19)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(19)(20)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(20)(21)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(21)(22)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(22)(23)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=0.5,Direct]</span>(23)(24)
+<!--           -->    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+<!--           --><div class="highlight"><pre><span></span><code><span class="c1"># ---</span>
+<!--           --><span class="c1"># jupyter:</span>
+<!--           --><span class="c1">#   jupytext:</span>
+<!--           --><span class="c1">#     formats: ipynb,py:light</span>
+<!--           --><span class="c1">#     text_representation:</span>
+<!--           --><span class="c1">#       extension: .py</span>
+<!--           --><span class="c1">#       format_name: light</span>
+<!--           --><span class="c1">#       format_version: &#39;1.5&#39;</span>
+<!--           --><span class="c1">#       jupytext_version: 1.4.0</span>
+<!--           --><span class="c1">#   kernelspec:</span>
+<!--           --><span class="c1">#     display_name: Python 3</span>
+<!--           --><span class="c1">#     language: python</span>
+<!--           --><span class="c1">#     name: python3</span>
+<!--           --><span class="c1"># ---</span>
+<!--           -->
+<!--           --><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<!--           --><span class="kn">import</span> <span class="nn">network2tikz</span> <span class="k">as</span> <span class="nn">n2t</span>
+<!--           --><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<!--           --><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<!--           -->
+<!--           --><span class="c1"># +</span>
+<!--           --><span class="c1"># my colors</span>
+<!--           -->
+<!--           --><span class="n">blue</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span><span class="mf">0.71</span><span class="p">])</span>
+<!--           --><span class="n">darkblue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">17</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+<!--           --><span class="n">red</span> <span class="o">=</span> <span class="p">[</span><span class="mi">175</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">39</span><span class="p">]</span>
+<!--           --><span class="n">orange</span><span class="o">=</span><span class="p">[</span><span class="mi">217</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+<!--           --><span class="n">green</span><span class="o">=</span><span class="p">[</span><span class="mi">144</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">84</span><span class="p">]</span>
+<!--           --><span class="n">palegreen</span><span class="o">=</span><span class="p">[</span><span class="mi">197</span><span class="p">,</span> <span class="mi">184</span><span class="p">,</span> <span class="mi">104</span><span class="p">]</span>
+<!--           --><span class="n">yellow</span><span class="o">=</span><span class="p">[</span><span class="mi">250</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<!--           --><span class="n">brokenwhite</span><span class="o">=</span><span class="p">[</span><span class="mi">218</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">166</span><span class="p">]</span>
+<!--           --><span class="n">brokengrey</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.77</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">])</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="c1"># +</span>
+<!--           --><span class="c1"># from https://bsou.io/posts/color-gradients-with-python</span>
+<!--           --><span class="k">def</span> <span class="nf">hex_to_RGB</span><span class="p">(</span><span class="nb">hex</span><span class="p">):</span>
+<!--           -->    <span class="sd">&#39;&#39;&#39; &quot;#FFFFFF&quot; -&gt; [255,255,255] &#39;&#39;&#39;</span>
+<!--           -->    <span class="c1"># Pass 16 to the integer function for change of base</span>
+<!--           -->    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">hex</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="k">def</span> <span class="nf">RGB_to_hex</span><span class="p">(</span><span class="n">RGB</span><span class="p">):</span>
+<!--           -->    <span class="sd">&#39;&#39;&#39; [255,255,255] -&gt; &quot;#FFFFFF&quot; &#39;&#39;&#39;</span>
+<!--           -->    <span class="c1"># Components need to be integers for hex to make sense</span>
+<!--           -->    <span class="n">RGB</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">RGB</span><span class="p">]</span>
+<!--           -->    <span class="k">return</span> <span class="s2">&quot;#&quot;</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;0</span><span class="si">{0:x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">16</span> <span class="k">else</span>
+<!--           -->            <span class="s2">&quot;</span><span class="si">{0:x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">RGB</span><span class="p">])</span>
+<!--           -->
+<!--           --><span class="k">def</span> <span class="nf">color_dict</span><span class="p">(</span><span class="n">gradient</span><span class="p">):</span>
+<!--           -->    <span class="sd">&#39;&#39;&#39; Takes in a list of RGB sub-lists and returns dictionary of</span>
+<!--           --><span class="sd">    colors in RGB and hex form for use in a graphing function</span>
+<!--           --><span class="sd">    defined later on &#39;&#39;&#39;</span>
+<!--           -->    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hex&quot;</span><span class="p">:[</span><span class="n">RGB_to_hex</span><span class="p">(</span><span class="n">RGB</span><span class="p">)</span> <span class="k">for</span> <span class="n">RGB</span> <span class="ow">in</span> <span class="n">gradient</span><span class="p">],</span>
+<!--           -->      <span class="s2">&quot;r&quot;</span><span class="p">:[</span><span class="n">RGB</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">RGB</span> <span class="ow">in</span> <span class="n">gradient</span><span class="p">],</span>
+<!--           -->      <span class="s2">&quot;g&quot;</span><span class="p">:[</span><span class="n">RGB</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">RGB</span> <span class="ow">in</span> <span class="n">gradient</span><span class="p">],</span>
+<!--           -->      <span class="s2">&quot;b&quot;</span><span class="p">:[</span><span class="n">RGB</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">RGB</span> <span class="ow">in</span> <span class="n">gradient</span><span class="p">]}</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="k">def</span> <span class="nf">linear_gradient</span><span class="p">(</span><span class="n">start_hex</span><span class="p">,</span> <span class="n">finish_hex</span><span class="o">=</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<!--           -->    <span class="sd">&#39;&#39;&#39; returns a gradient list of (n) colors between</span>
+<!--           --><span class="sd">    two hex colors. start_hex and finish_hex</span>
+<!--           --><span class="sd">    should be the full six-digit color string,</span>
+<!--           --><span class="sd">    inlcuding the number sign (&quot;#FFFFFF&quot;) &#39;&#39;&#39;</span>
+<!--           -->    <span class="c1"># Starting and ending colors in RGB form</span>
+<!--           -->    <span class="n">s</span> <span class="o">=</span> <span class="n">hex_to_RGB</span><span class="p">(</span><span class="n">start_hex</span><span class="p">)</span>
+<!--           -->    <span class="n">f</span> <span class="o">=</span> <span class="n">hex_to_RGB</span><span class="p">(</span><span class="n">finish_hex</span><span class="p">)</span>
+<!--           -->    <span class="c1"># Initilize a list of the output colors with the starting color</span>
+<!--           -->    <span class="n">RGB_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">]</span>
+<!--           -->    <span class="c1"># Calcuate a color at each evenly spaced value of t from 1 to n</span>
+<!--           -->    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<!--           -->        <span class="c1"># Interpolate RGB vector for color at the current value of t</span>
+<!--           -->        <span class="n">curr_vector</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<!--           -->        <span class="c1"># Add it to our list of output colors</span>
+<!--           -->        <span class="n">RGB_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_vector</span><span class="p">)</span>
+<!--           -->
+<!--           -->    <span class="k">return</span> <span class="n">color_dict</span><span class="p">(</span><span class="n">RGB_list</span><span class="p">)</span>
+<!--           -->
+<!--           -->
+<!--           -->
+<!--           --><span class="c1"># -</span>
+<!--           -->
+<!--           --><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<!--           -->    <span class="n">coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+<!--           -->    <span class="n">pulses</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">20.</span><span class="p">]</span>
+<!--           -->    <span class="n">phases</span> <span class="o">=</span> <span class="p">[</span><span class="mf">100.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\\</span><span class="s2">addplot[color=darkblue, ultra thin] {&quot;</span><span class="o">+</span><span class="s2">&quot;+&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">*cos(deg(</span><span class="si">{}</span><span class="s2">*x + </span><span class="si">{}</span><span class="s2">))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span><span class="n">pulses</span><span class="p">,</span><span class="n">phases</span><span class="p">)])</span> <span class="o">+</span> <span class="s2">&quot;};&quot;</span><span class="p">)</span>
+<!--           -->    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">phi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span><span class="n">pulses</span><span class="p">,</span><span class="n">phases</span><span class="p">)])</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)))</span>
+<!--           -->
+<!--           --><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<!--           -->
+<!--           --><span class="c1"># +</span>
+<!--           --><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">begin</span><span class="si">{axis}</span><span class="s2"> [domain=0:2.1,samples=200,no markers,hide y axis,xtick=\empty,axis lines=middle,xlabel=$t$,]&quot;</span><span class="p">)</span>
+<!--           -->
+<!--           --><span class="n">low</span> <span class="o">=</span> <span class="n">yellow</span>
+<!--           --><span class="n">high</span> <span class="o">=</span> <span class="n">red</span>
+<!--           --><span class="n">bins_nb</span> <span class="o">=</span> <span class="mi">30</span>
+<!--           --><span class="n">Y</span> <span class="o">=</span> <span class="n">s</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<!--           --><span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<!--           --><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="n">eps</span><span class="p">,</span><span class="n">Y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="n">eps</span><span class="p">,</span><span class="n">bins_nb</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<!--           --><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">hex_to_RGB</span><span class="p">(</span><span class="n">linear_gradient</span><span class="p">(</span><span class="n">RGB_to_hex</span><span class="p">(</span><span class="n">low</span><span class="p">),</span> <span class="n">RGB_to_hex</span><span class="p">(</span><span class="n">high</span><span class="p">),</span> <span class="n">bins_nb</span><span class="p">)[</span><span class="s1">&#39;hex&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bins_nb</span><span class="p">)])</span>
+<!--           --><span class="n">colors_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="n">bins</span><span class="p">)]]</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="k">for</span> <span class="n">i</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">colors_tuples</span><span class="p">)):</span>
+<!--           -->    <span class="c1">#print(&quot;{}: {},{}&quot;.format(i,x,y))</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\\</span><span class="s2">coordinate (p</span><span class="si">{}</span><span class="s2">) at (</span><span class="si">{:.2f}</span><span class="s2">,</span><span class="si">{:.2f}</span><span class="s2">);&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\\</span><span class="s2">coordinate (p</span><span class="si">{}</span><span class="s2">_orig) at (</span><span class="si">{:.2f}</span><span class="s2">,</span><span class="si">{:.2f}</span><span class="s2">);&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mf">0.0</span><span class="p">))</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\\</span><span class="s2">draw[dotted, thin] (p</span><span class="si">{}</span><span class="s2">) -- (p</span><span class="si">{}</span><span class="s2">_orig);&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">\definecolor{{tempcolor_line_graph_</span><span class="si">{}</span><span class="s2">}}{{RGB}}{{ </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2"> }};&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="n">col</span><span class="p">))</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\\</span><span class="s2">node[ultra thick, color=tempcolor_line_graph_</span><span class="si">{}</span><span class="s2">] at (p</span><span class="si">{}</span><span class="s2">) {{$</span><span class="se">\\</span><span class="s2">bullet$}};&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+<!--           -->
+<!--           --><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">end</span><span class="si">{axis}</span><span class="s2">&quot;</span><span class="p">)</span>
+<!--           --><span class="c1"># -</span>
+<!--           -->
+<!--           --><span class="c1"># now print the corresponding line graph</span>
+<!--           --><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<!--           -->
+<!--           --><span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<!--           --><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">path_graph</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<!--           -->
+<!--           --><span class="n">nx</span><span class="o">.</span><span class="n">draw_spring</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<!--           -->
+<!--           --><span class="n">visual_style</span> <span class="o">=</span> <span class="p">{}</span>
+<!--           --><span class="n">visual_style</span><span class="p">[</span><span class="s1">&#39;vertex_color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colors_tuples</span>
+<!--           --><span class="n">visual_style</span><span class="p">[</span><span class="s1">&#39;vertex_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.2</span>
+<!--           --><span class="n">visual_style</span><span class="p">[</span><span class="s1">&#39;edge_curved&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+<!--           -->
+<!--           --><span class="c1"># +</span>
+<!--           --><span class="n">layout</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spectral_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<!--           --><span class="c1">#layout = {i:np.array([2*i, 0]) for i in range(n)}</span>
+<!--           --><span class="c1">#layout</span>
+<!--           -->
+<!--           --><span class="n">n2t</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s2">&quot;test.tex&quot;</span><span class="p">,</span> <span class="n">standalone</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">,</span> <span class="o">**</span><span class="n">visual_style</span><span class="p">)</span>
+<!--           --><span class="c1"># -</span>
+<!--           -->
+<!--           --><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors_tuples</span><span class="p">):</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Vertex[x=</span><span class="si">{:.2f}</span><span class="s2">,y=0.,size=0.2,color={{</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">}},RGB]{{</span><span class="si">{}</span><span class="s2">}}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.7</span><span class="o">+</span><span class="n">i</span><span class="o">/</span><span class="mf">1.95</span><span class="p">,</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+<!--           --><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors_tuples</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Edge[lw=0.5,Direct](</span><span class="si">{}</span><span class="s2">)(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

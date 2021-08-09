@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='graph_topology/graph_topology.svg' alt='graph_topology'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz-network<span class="nb">}</span> <span class="c">% for network / graph utilities</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="k">\input</span><span class="nb">{</span>colors.tex<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;]
+<!--           -->        <span class="c">%\clip (0,0) rectangle (6,6);</span>
+<!--           -->        <span class="k">\coordinate</span> (13) at (3.572,1.845);
+<!--           -->        <span class="k">\fill</span> [orange, opacity=0.4] plot [smooth cycle, tension=1] coordinates <span class="nb">{</span>(13) (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(-</span><span class="m">0</span><span class="nb">.</span><span class="m">4</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">3</span><span class="o">)</span><span class="s">$</span>) (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(-</span><span class="m">0</span><span class="nb">.</span><span class="m">5</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="o">)</span><span class="s">$</span>)<span class="nb">}</span>;
+<!--           -->        <span class="k">\fill</span> [orange, opacity=0.4] plot [smooth cycle, tension=1] coordinates <span class="nb">{</span>(13) (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(-</span><span class="m">0</span><span class="nb">.</span><span class="m">2</span><span class="nb">,</span><span class="o">-</span><span class="m">0</span><span class="nb">.</span><span class="m">4</span><span class="o">)</span><span class="s">$</span>) (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="m">0</span><span class="nb">.</span><span class="m">05</span><span class="nb">,</span><span class="o">-</span><span class="m">0</span><span class="nb">.</span><span class="m">4</span><span class="o">)</span><span class="s">$</span>)<span class="nb">}</span>;
+<!--           -->        <span class="k">\fill</span> [orange, opacity=0.4] plot [smooth cycle, tension=1] coordinates <span class="nb">{</span>(13) (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="m">0</span><span class="nb">.</span><span class="m">15</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">45</span><span class="o">)</span><span class="s">$</span>) (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="m">0</span><span class="nb">.</span><span class="m">4</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">4</span><span class="o">)</span><span class="s">$</span>)<span class="nb">}</span>;
+<!--           -->
+<!--           -->        <span class="k">\node</span> (degree) at (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="m">2</span><span class="nb">.</span><span class="m">7</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">2</span><span class="o">)</span><span class="nb"> </span><span class="s">$</span>)
+<!--           -->        <span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>orange<span class="nb">}{</span><span class="k">\tiny</span><span class="nb">{</span><span class="k">\emph</span><span class="nb">{</span>node degree<span class="nb">}</span> (number
+<!--           -->        of neighbours)<span class="nb">}}}</span>;
+<!--           -->        <span class="k">\node</span> (degree) at (<span class="s">$</span><span class="nb"> </span><span class="o">(</span><span class="m">13</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="m">3</span><span class="nb">,</span><span class="o">-</span><span class="m">0</span><span class="nb">.</span><span class="m">2</span><span class="o">)</span><span class="nb"> </span><span class="s">$</span>)
+<!--           -->        <span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>orange<span class="nb">}{</span><span class="k">\tiny</span><span class="nb">{</span><span class="k">\emph</span><span class="nb">{</span>node strength<span class="nb">}</span> (sum of adjacent edges
+<!--           -->        weights)<span class="nb">}}}</span>;
+<!--           -->
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=3.9,y=5.074,size=0.3,]</span><span class="nb">{</span>0<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=3.851,y=4.351,size=0.3,]</span><span class="nb">{</span>1<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=5.354,y=4.586,size=0.3,]</span><span class="nb">{</span>2<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=green, x=4.839,y=3.250,size=0.3,]</span><span class="nb">{</span>3<span class="nb">}</span>
+<!--           -->        <span class="k">\node</span> (clustering) at (6.4,3.25) <span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>green<span class="nb">}{</span><span class="k">\tiny</span><span class="nb">{</span><span class="k">\shortstack</span><span class="nb">{</span><span class="k">\emph</span><span class="nb">{</span>clustering coefficient<span class="nb">}</span><span class="k">\\</span> fraction of triangles in <span class="k">\\</span> the node&#39;s neighbourhood<span class="nb">}}}}</span>;
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=blue!50, x=2.927,y=5.785,size=0.3, ]</span><span class="nb">{</span>4<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=1.690,y=5.800,size=0.3,color = blue!50, ]</span><span class="nb">{</span>5<span class="nb">}</span>
+<!--           -->        <span class="k">\node</span> (shortest) at (3.2,3.4) <span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}{</span><span class="k">\tiny</span><span class="nb">{</span><span class="k">\emph</span><span class="nb">{</span>shortest paths<span class="nb">}}}}</span>;
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=2.194,y=4.296,size=0.3,color = blue]</span><span class="nb">{</span>6<span class="nb">}</span>
+<!--           -->        <span class="k">\node</span> (centrality) at (-0.1, 4.3)
+<!--           -->        <span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}{</span><span class="k">\tiny</span><span class="nb">{</span><span class="k">\shortstack</span><span class="nb">{</span><span class="k">\emph</span><span class="nb">{</span>betweenness centrality<span class="nb">}</span><span class="k">\\</span>
+<!--           -->        fraction of all pairwise shortest <span class="k">\\</span> paths going through a node<span class="nb">}}}}</span>;
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=4.808,y=5.469,size=0.3,]</span><span class="nb">{</span>7<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=0.646,y=1.592,size=0.3,]</span><span class="nb">{</span>8<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=2.415,y=1.253,size=0.3,]</span><span class="nb">{</span>9<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[x=2.295,y=0.200,size=0.3, color = blue!50,]</span><span class="nb">{</span>10<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=blue!50,x=1.259,y=0.605,size=0.3,]</span><span class="nb">{</span>11<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=2.278,y=2.758,size=0.3,]</span><span class="nb">{</span>12<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=orange,x=3.572,y=1.845,size=0.3,]</span><span class="nb">{</span>13<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=1.555,y=2.540,size=0.3,]</span><span class="nb">{</span>14<span class="nb">}</span>
+<!--           -->        <span class="k">\Vertex</span><span class="na">[color=brokenwhite!30,x=3.451,y=0.209,size=0.3,]</span><span class="nb">{</span>15<span class="nb">}</span>
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(0)(1)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(0)(2)
+<!--           -->        <span class="c">%\Edge[,bend=-8.531](0)(5)</span>
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(0)(6)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(0)(7)
+<!--           -->        <span class="k">\Edge</span><span class="na">[color=green,bend=-8.531]</span>(1)(2)
+<!--           -->        <span class="k">\Edge</span><span class="na">[color=green,bend=-8.531]</span>(1)(3)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(1)(4)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(1)(6)
+<!--           -->        <span class="k">\Edge</span><span class="na">[color=green,bend=-8.531]</span>(2)(3)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(2)(7)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(3)(13)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(4)(5)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50 ,bend=8.531]</span>(5)(6)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(4)(7)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50, style={dashed},bend=-8.531]</span>(4)(6)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50 ,bend=-8.531]</span>(6)(12)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50, style={dashed},bend=-8.531]</span>(6)(14)
+<!--           -->        <span class="c">%\Edge[,bend=-8.531](8)(10)</span>
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(8)(11)
+<!--           -->        <span class="c">%\Edge[,bend=-8.531](8)(12)</span>
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(8)(14)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50,bend=-8.531]</span>(9)(10)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50 ,bend=-8.531]</span>(9)(12)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(9)(14)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(9)(15)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(10)(11)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(9)(11)
+<!--           -->        <span class="k">\Edge</span><span class="na">[lw=2, color=blue!50, style={dashed},bend=-8.531]</span>(11)(14)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(10)(15)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(12)(13)
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(12)(14)
+<!--           -->        <span class="c">%\Edge[,bend=-8.531](13)(14)</span>
+<!--           -->        <span class="k">\Edge</span><span class="na">[,bend=-8.531]</span>(13)(15)
+<!--           -->   <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='sphere_manifold/sphere_manifold.svg' alt='sphere_manifold'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span> <span class="c">% pgplots package</span>
+<!--           -->
+<!--           --><span class="k">\pgfplotsset</span><span class="nb">{</span>
+<!--           -->    compat = 1.17, <span class="c">% to have the same coordinate system between axis and draw</span>
+<!--           --><span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz-network<span class="nb">}</span> <span class="c">% provides graph / network utilities (Edge, Node, etc)</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows.meta<span class="nb">}</span> <span class="c">% for nice arrows</span>
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>calc<span class="nb">}</span> <span class="c">% to do some computations on the coordinates</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="c">%\input{colors.tex}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->
+<!--           -->    <span class="c">% tangent plane formula from some stack exchange post</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;,tangent plane/.style args=<span class="nb">{</span>at #1 with vectors #2 and #3<span class="nb">}{</span>insert path=<span class="nb">{</span>#1 --  (<span class="s">$</span><span class="nb">#</span><span class="m">1</span><span class="o">+(</span><span class="s">$</span>#2-(0,0,0)<span class="s">$</span><span class="o">)</span><span class="s">$</span>) --  (<span class="s">$</span><span class="nb">#</span><span class="m">1</span><span class="o">+(</span><span class="s">$</span>#2-(0,0,0)<span class="s">$</span><span class="o">)+(</span><span class="s">$</span>#3-(0,0,0)<span class="s">$</span><span class="o">)</span><span class="s">$</span>) -- (<span class="s">$</span><span class="nb">#</span><span class="m">1</span><span class="o">+(</span><span class="s">$</span>#3-(0,0,0)<span class="s">$</span><span class="o">)</span><span class="s">$</span>) -- cycle<span class="nb">}}</span>]
+<!--           -->        <span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[<span class="c">%</span>
+<!--           -->            axis equal,
+<!--           -->            hide axis,
+<!--           -->            width=10cm,
+<!--           -->            height=10cm,
+<!--           -->            axis lines = center,
+<!--           -->            xlabel = <span class="nb">{}</span>,
+<!--           -->            ylabel = <span class="nb">{}</span>,
+<!--           -->            zlabel = <span class="nb">{}</span>,
+<!--           -->            ticks=none,
+<!--           -->            enlargelimits=0.3,
+<!--           -->            colormap=<span class="nb">{</span>whiteblue<span class="nb">}{</span>color=(blue) color=(white)<span class="nb">}</span>,
+<!--           -->            colormap=<span class="nb">{</span>gb<span class="nb">}{</span>color=(green) color=(yellow)
+<!--           -->                color=(brown)<span class="nb">}</span>,
+<!--           -->            view/h=45,
+<!--           -->            scale uniformly strategy=units only,
+<!--           -->        ]
+<!--           -->        <span class="k">\addplot</span>3[<span class="c">%</span>
+<!--           -->            opacity = 0.95,
+<!--           -->            z buffer = sort,
+<!--           -->            surf,
+<!--           -->            samples = 23,
+<!--           -->            variable = <span class="k">\u</span>,
+<!--           -->            variable y = <span class="k">\v</span>,
+<!--           -->            domain = 0:360,
+<!--           -->            y domain = 0:180,
+<!--           -->            colormap=<span class="nb">{</span>slategraywhite<span class="nb">}{</span>rgb255=(97,130,181) rgb255=(218, 192, 166)<span class="nb">}</span>,
+<!--           -->        ]
+<!--           -->        (<span class="nb">{</span>sin(u)*cos(v)<span class="nb">}</span>, <span class="nb">{</span>sin(u)*sin(v)<span class="nb">}</span>, <span class="nb">{</span>cos(u)<span class="nb">}</span>);
+<!--           -->
+<!--           -->        <span class="k">\draw</span>[fill=white,fill opacity=0.4,
+<!--           -->            tangent plane=at <span class="nb">{</span>(<span class="nb">{</span>cos(65)-0.5*sin(65)<span class="nb">}</span>,-0.5,<span class="nb">{</span>sin(65)<span class="nb">}</span>)<span class="nb">}</span> with
+<!--           -->            vectors <span class="nb">{</span>(<span class="nb">{</span>sin(65)<span class="nb">}</span>,0,<span class="nb">{</span>-cos(65)<span class="nb">}</span>)<span class="nb">}</span> and <span class="nb">{</span>(0,1,0)<span class="nb">}</span>];
+<!--           -->
+<!--           -->        <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
+<!--           -->
+<!--           -->        <span class="c">% I used trial and errors to find nice coordinates for those next nodes</span>
+<!--           -->        <span class="k">\coordinate</span> (x) at (4.3,5);
+<!--           -->
+<!--           -->        <span class="k">\draw</span><span class="na">[fill]</span> (x) circle (0.03) node[below] <span class="nb">{</span><span class="s">$</span><span class="nb">x</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->        <span class="k">\draw</span><span class="na">[-&gt;]</span> (x) to node[left] <span class="nb">{</span><span class="s">$</span><span class="nb">e_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span> (4.02,5.35) ;
+<!--           -->        <span class="k">\draw</span><span class="na">[-&gt;]</span> (x) to (4.7,5.21) node[below] <span class="nb">{</span><span class="s">$</span><span class="nb">e_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

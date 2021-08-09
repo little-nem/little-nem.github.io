@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='fused_gromov_wasserstein/fused_gromov_wasserstein.svg' alt='fused_gromov_wasserstein'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="k">\input</span><span class="nb">{</span>colors.tex<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows<span class="nb">}</span>
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>3d<span class="nb">}</span>
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>calc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=1.1,&gt;=stealth&#39;,tips=proper]
+<!--           -->                <span class="k">\coordinate</span> (a) at (0.5, 0, 1.4);
+<!--           -->                <span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>[canvas is xz plane at y = 0]
+<!--           -->                    <span class="k">\fill</span><span class="na">[brokengrey!20]</span> (-0.5, -0.5) rectangle (3.5, 3.5);
+<!--           -->                    <span class="k">\draw</span><span class="na">[dashed, ultra thin]</span> (-0.5, -0.5) grid (3.5, 3.5);
+<!--           -->
+<!--           -->                    <span class="k">\fill</span><span class="na">[brokengrey!20]</span> (5.5, 3.5) rectangle (9.5, 8.5);
+<!--           -->                    <span class="k">\draw</span><span class="na">[dashed, ultra thin]</span> (5.5, 3.5) grid (9.5, 8.5);
+<!--           -->                <span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+<!--           -->
+<!--           -->                <span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>[canvas is xz plane at y = 0]
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=blue]</span> (0.5,1.4) circle (0.2);
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=darkblue]</span> (0.9,2.4) circle (0.2);
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=red]</span> (1.2,0.2) circle (0.2);
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=green]</span> (3.1,2.2) circle (0.2);
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=palegreen]</span> (6.0,4.1) circle (0.2);
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=yellow]</span> (7.2,4.4) circle (0.2);
+<!--           -->                 <span class="k">\draw</span><span class="na">[fill=blue]</span> (9.0,7.6) circle (0.2);
+<!--           -->                <span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+<!--           -->
+<!--           -->                <span class="k">\coordinate</span> (blue) at (0.5, 0.0,1.4);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, blue]</span> (0.5, 0.0,1.4) -- (0.5, 1.0,1.4);
+<!--           -->                <span class="k">\coordinate</span> (darkblue) at (0.9, 0.0,2.4);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, darkblue]</span> (0.9, 0.0,2.4) -- (0.9, 0.2,2.4);
+<!--           -->                <span class="k">\coordinate</span> (red) at (1.2, 0.0,0.2);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, red]</span> (1.2, 0.0,0.2) -- (1.2, 0.4,0.2);
+<!--           -->                <span class="k">\coordinate</span> (green) at (3.1, 0.0,2.2);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, green]</span> (3.1, 0.0,2.2) -- (3.1, 0.9,2.2);
+<!--           -->                <span class="k">\coordinate</span> (palegreen) at (6.0, 0.0,4.1);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, palegreen]</span> (6.0, 0.0,4.1) -- (6.0, 1.2,4.1);
+<!--           -->                <span class="k">\coordinate</span> (yellow) at (7.2, 0.0,4.4);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, yellow]</span> (7.2, 0.0,4.4) -- (7.2, 0.4,4.4);
+<!--           -->                <span class="k">\coordinate</span> (blue2) at (9.0, 0.0,7.6);
+<!--           -->                <span class="k">\draw</span><span class="na">[ultra thick, blue]</span> (9.0, 0.0,7.6) -- (9.0, 0.5,7.6);
+<!--           -->
+<!--           -->                <span class="k">\draw</span><span class="na">[densely dashed]</span> (blue) -- (darkblue);
+<!--           -->                <span class="k">\draw</span><span class="na">[densely dashed]</span> (blue) -- (green);
+<!--           -->                <span class="k">\draw</span><span class="na">[densely dashed]</span> (darkblue) -- (green);
+<!--           -->
+<!--           -->                <span class="k">\draw</span><span class="na">[bend right = -60, &lt;-&gt;]</span> (<span class="s">$</span><span class="o">(</span><span class="nb">green</span><span class="o">)+(</span><span class="m">0</span><span class="nb">.</span><span class="m">05</span><span class="nb">, </span><span class="m">0</span><span class="nb">.</span><span class="m">05</span><span class="nb">, </span><span class="m">0</span><span class="o">)</span><span class="s">$</span>) to (6,0) to (<span class="s">$</span><span class="o">(</span><span class="nb">blue</span><span class="m">2</span><span class="o">)+(</span><span class="m">0</span><span class="nb">.</span><span class="m">05</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="m">05</span><span class="nb">,</span><span class="m">0</span><span class="nb">.</span><span class="o">)</span><span class="s">$</span>);
+<!--           -->                <span class="k">\node</span><span class="na">[fill=red!10]</span> (distance) at (6, 0) <span class="nb">{</span><span class="s">$</span><span class="nb">d</span><span class="nv">\left</span><span class="o">(</span><span class="nv">\tikz\draw</span><span class="o">[</span><span class="nb">green,fill</span><span class="o">=</span><span class="nb">green</span><span class="o">]</span><span class="nb"> </span><span class="o">(</span><span class="m">0</span><span class="nb">,</span><span class="m">0</span><span class="o">)</span><span class="nb"> circle </span><span class="o">(</span><span class="nb">.</span><span class="m">5</span><span class="nb">ex</span><span class="o">)</span><span class="nb">;, </span><span class="nv">\tikz\draw</span><span class="o">[</span><span class="nb">blue,fill</span><span class="o">=</span><span class="nb">blue</span><span class="o">]</span><span class="nb"> </span><span class="o">(</span><span class="m">0</span><span class="nb">,</span><span class="m">0</span><span class="o">)</span><span class="nb"> circle </span><span class="o">(</span><span class="nb">.</span><span class="m">5</span><span class="nb">ex</span><span class="o">)</span><span class="nb">; </span><span class="nv">\right</span><span class="o">)</span><span class="nb"> </span><span class="nv">\rightarrow</span><span class="nb"> M_{AB} </span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->                <span class="k">\draw</span><span class="na">[&lt;-&gt;]</span> (<span class="s">$</span><span class="o">(</span><span class="nb">red</span><span class="o">)+(</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="o">-</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="m">0</span><span class="o">)</span><span class="s">$</span>) -- (<span class="s">$</span><span class="o">(</span><span class="nb">green</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(-</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="m">0</span><span class="o">)</span><span class="s">$</span>)  node (middle1) [midway, left] <span class="nb">{</span><span class="s">$</span><span class="nb">d_{{</span><span class="nv">\color</span><span class="nb">{red}x},{</span><span class="nv">\color</span><span class="nb">{green}x&#39;}}</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->                <span class="k">\draw</span><span class="na">[&lt;-&gt;]</span> (<span class="s">$</span><span class="o">(</span><span class="nb">palegreen</span><span class="o">)+(</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="o">-</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="m">0</span><span class="o">)</span><span class="s">$</span>) -- (<span class="s">$</span><span class="o">(</span><span class="nb">blue</span><span class="m">2</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(-</span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="m">0</span><span class="nb">.</span><span class="m">1</span><span class="nb">, </span><span class="m">0</span><span class="o">)</span><span class="s">$</span>) node (middle2) [midway, left] <span class="nb">{}</span> node [midway, right] <span class="nb">{</span><span class="s">$</span><span class="nv">\overline</span><span class="nb">{d}_{{</span><span class="nv">\color</span><span class="nb">{palegreen}y}{</span><span class="nv">\color</span><span class="nb">{blue}y}}</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->                <span class="k">\draw</span><span class="na">[bend right=50, &lt;-&gt;]</span> (middle1) to (middle2) node [fill=orange!10, below left,yshift=20, xshift=-50, rotate = 0] <span class="nb">{</span><span class="s">$</span><span class="nv">\|</span><span class="nb"> d_{{</span><span class="nv">\color</span><span class="nb">{red}x}{</span><span class="nv">\color</span><span class="nb">{green}x&#39;}} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\overline</span><span class="nb">{d}_{{</span><span class="nv">\color</span><span class="nb">{palegreen}y}{</span><span class="nv">\color</span><span class="nb">{blue}y}} </span><span class="nv">\|</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\underbrace</span><span class="nb">{</span><span class="nv">\|</span><span class="nb"> C_</span><span class="m">1</span><span class="o">(</span><span class="nb">{</span><span class="nv">\color</span><span class="nb">{red}x}, {</span><span class="nv">\color</span><span class="nb">{green}x&#39;}</span><span class="o">)</span><span class="nb"> </span><span class="o">-</span><span class="nb"> C_</span><span class="m">2</span><span class="o">(</span><span class="nb">{</span><span class="nv">\color</span><span class="nb">{palegreen}y}, {</span><span class="nv">\color</span><span class="nb">{blue}y&#39;}</span><span class="o">)</span><span class="nv">\|</span><span class="nb">}_{L_{i,j,k,l}}</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->            <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+<!--           --><div class="highlight"><pre><span></span><code><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">2.2</span><span class="p">],</span>
+<!--           -->          <span class="p">[</span><span class="mf">6.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.2</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">9.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">]]</span>
+<!--           --><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;palegreen&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<!--           --><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<!--           -->
+<!--           --><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">begin</span><span class="si">{scope}</span><span class="s2">[canvas is xz plane at y = 0]&quot;</span><span class="p">)</span>
+<!--           --><span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\\</span><span class="s2">draw[fill=</span><span class="si">{}</span><span class="s2">] (</span><span class="si">{:03.1f}</span><span class="s2">,</span><span class="si">{:03.1f}</span><span class="s2">) circle (0.2);&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<!--           --><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">end</span><span class="si">{scope}</span><span class="s2">&quot;</span><span class="p">)</span>
+<!--           -->
+<!--           --><span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">coordinate (</span><span class="si">{}</span><span class="s2">) at (</span><span class="si">{:03.1f}</span><span class="s2">, </span><span class="si">{:03.1f}</span><span class="s2">,</span><span class="si">{:03.1f}</span><span class="s2">);&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<!--           -->    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">draw[ultra thick, </span><span class="si">{}</span><span class="s2">] (</span><span class="si">{:03.1f}</span><span class="s2">, </span><span class="si">{:03.1f}</span><span class="s2">,</span><span class="si">{:03.1f}</span><span class="s2">) -- (</span><span class="si">{:03.1f}</span><span class="s2">, </span><span class="si">{:03.1f}</span><span class="s2">,</span><span class="si">{:03.1f}</span><span class="s2">);&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

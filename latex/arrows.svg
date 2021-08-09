@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="arrows.svg"
+   inkscape:version="1.0 (unknown)"
+   id="svg931"
+   version="1.1"
+   viewBox="0 0 83.206108 75.761742"
+   height="75.761742mm"
+   width="83.206108mm">
+  <defs
+     id="defs925">
+    <clipPath
+       id="clip1">
+      <path
+         id="path859"
+         d="M 0,0 H 70.914062 V 69.742188 H 0 Z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip1-3">
+      <path
+         id="path859-6"
+         d="M 0,0 H 70.914062 V 69.742188 H 0 Z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip1-2">
+      <path
+         id="path859-7"
+         d="M 0,0 H 70.914062 V 69.742188 H 0 Z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip1-7">
+      <path
+         id="path859-9"
+         d="M 0,0 H 70.914062 V 69.742188 H 0 Z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip1-28">
+      <path
+         id="path859-97"
+         d="M 0,0 H 70.914062 V 69.742188 H 0 Z m 0,0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="60"
+     inkscape:window-x="15"
+     inkscape:window-height="923"
+     inkscape:window-width="2968"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
+     fit-margin-left="0"
+     fit-margin-top="0"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="surface4119"
+     inkscape:document-units="mm"
+     inkscape:cy="117.9628"
+     inkscape:cx="-321.46912"
+     inkscape:zoom="0.79989369"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata928">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-56.186192,-24.881846)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Calque 1">
+    <g
+       transform="matrix(1.3333333,0,0,1.3333333,-18.9495,-17.630482)"
+       id="surface4119">
+      <g
+         transform="translate(55.319104,26.678819)"
+         id="g874"
+         clip-rule="nonzero"
+         clip-path="url(#clip1)">
+        <path
+           id="path872"
+           transform="matrix(1,0,0,-1,7.111,63.218)"
+           d="M 7.310875,1.960188 C 32.814781,8.917219 48.162438,24.401594 54.303063,47.733625"
+           style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
+      </g>
+      <path
+         id="path876"
+         d="m 117.11989,40.69835 c -0.84766,1.734375 -2.0625,3.371094 -3.92188,5.230468 2.22656,-1.761718 3.69141,-1.374999 4.76172,1.253911 -0.70703,-2.535157 -0.95703,-4.558593 -0.83984,-6.484375 z m 0,0"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.59397;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1" />
+      <g
+         transform="matrix(-0.26444229,0.00863788,-0.00863788,-0.26444229,103.94013,84.595408)"
+         id="surface4208">
+        <g
+           transform="matrix(3.7486782,0,0,3.6623257,-69.115212,-28.298559)"
+           id="g874-3"
+           clip-rule="nonzero"
+           clip-path="url(#clip1-28)">
+          <path
+             id="path872-6"
+             transform="matrix(1,0,0,-1,7.111,63.218)"
+             d="m 7.310875,1.960188 c 25.503906,6.957031 40.851563,22.441406 47.175781,46.46875"
+             style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
+        </g>
+        <path
+           id="path876-1"
+           d="m 142.71438,31.228517 c 10.51388,0.271744 16.54689,-3.576481 19.84164,-8.182991 0.55642,5.593616 3.86583,11.845316 13.14965,16.666438"
+           style="fill:none;stroke:#000000;stroke-width:5.90606;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

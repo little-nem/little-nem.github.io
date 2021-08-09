@@ -1,0 +1,202 @@
+\documentclass[a4paper, 12pt]{article}
+
+% a nice font
+\usepackage{kpfonts}
+
+% basic text stuff
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{pgfplots}
+\pgfplotsset{
+    compat = 1.17, % to have the same coordinate system between axis and draw
+}
+
+\usepackage{tikz} % main tikz package
+\usepackage{tikz-network} % provides graph / network utilities (Edge, Node, etc)
+
+% for a nicer colorscheme
+\input{colors.tex}
+
+\begin{document}
+    \begin{tikzpicture}[>=stealth']
+        \begin{axis} [yscale=0.7,xscale=2.,domain=0:2.1,ymin=-1,samples=200,no markers,hide y axis,xtick=\empty,axis lines=middle,xlabel=$t$,]
+        	\addplot[color=darkblue, ultra thin] {0.5*cos(deg(5.0*x + 100.0))+0.25*cos(deg(9.0*x + 100.0))+0.1*cos(deg(10*x + 10))+0.2*cos(deg(20.0*x + 0))};
+        	\coordinate (p0) at (0.10,0.65);
+        	\coordinate (p0_orig) at (0.10,0.00);
+        	\draw[dotted, thin] (p0) -- (p0_orig);
+        	\definecolor{tempcolor_line_graph_0}{RGB}{ 182, 64, 45 };
+        	\node[ultra thick, color=tempcolor_line_graph_0] at (p0) {$\bullet$};
+        	\coordinate (p1) at (0.18,0.48);
+        	\coordinate (p1_orig) at (0.18,0.00);
+        	\draw[dotted, thin] (p1) -- (p1_orig);
+        	\definecolor{tempcolor_line_graph_1}{RGB}{ 190, 80, 51 };
+        	\node[ultra thick, color=tempcolor_line_graph_1] at (p1) {$\bullet$};
+        	\coordinate (p2) at (0.26,0.49);
+        	\coordinate (p2_orig) at (0.26,0.00);
+        	\draw[dotted, thin] (p2) -- (p2_orig);
+        	\definecolor{tempcolor_line_graph_2}{RGB}{ 190, 80, 51 };
+        	\node[ultra thick, color=tempcolor_line_graph_2] at (p2) {$\bullet$};
+        	\coordinate (p3) at (0.34,0.25);
+        	\coordinate (p3_orig) at (0.34,0.00);
+        	\draw[dotted, thin] (p3) -- (p3_orig);
+        	\definecolor{tempcolor_line_graph_3}{RGB}{ 203, 105, 62 };
+        	\node[ultra thick, color=tempcolor_line_graph_3] at (p3) {$\bullet$};
+        	\coordinate (p4) at (0.42,-0.34);
+        	\coordinate (p4_orig) at (0.42,0.00);
+        	\draw[dotted, thin] (p4) -- (p4_orig);
+        	\definecolor{tempcolor_line_graph_4}{RGB}{ 231, 162, 85 };
+        	\node[ultra thick, color=tempcolor_line_graph_4] at (p4) {$\bullet$};
+        	\coordinate (p5) at (0.50,-0.61);
+        	\coordinate (p5_orig) at (0.50,0.00);
+        	\draw[dotted, thin] (p5) -- (p5_orig);
+        	\definecolor{tempcolor_line_graph_5}{RGB}{ 244, 188, 95 };
+        	\node[ultra thick, color=tempcolor_line_graph_5] at (p5) {$\bullet$};
+        	\coordinate (p6) at (0.57,-0.37);
+        	\coordinate (p6_orig) at (0.57,0.00);
+        	\draw[dotted, thin] (p6) -- (p6_orig);
+        	\definecolor{tempcolor_line_graph_6}{RGB}{ 234, 167, 87 };
+        	\node[ultra thick, color=tempcolor_line_graph_6] at (p6) {$\bullet$};
+        	\coordinate (p7) at (0.65,-0.20);
+        	\coordinate (p7_orig) at (0.65,0.00);
+        	\draw[dotted, thin] (p7) -- (p7_orig);
+        	\definecolor{tempcolor_line_graph_7}{RGB}{ 224, 147, 78 };
+        	\node[ultra thick, color=tempcolor_line_graph_7] at (p7) {$\bullet$};
+        	\coordinate (p8) at (0.73,-0.35);
+        	\coordinate (p8_orig) at (0.73,0.00);
+        	\draw[dotted, thin] (p8) -- (p8_orig);
+        	\definecolor{tempcolor_line_graph_8}{RGB}{ 231, 162, 85 };
+        	\node[ultra thick, color=tempcolor_line_graph_8] at (p8) {$\bullet$};
+        	\coordinate (p9) at (0.81,-0.34);
+        	\coordinate (p9_orig) at (0.81,0.00);
+        	\draw[dotted, thin] (p9) -- (p9_orig);
+        	\definecolor{tempcolor_line_graph_9}{RGB}{ 231, 162, 85 };
+        	\node[ultra thick, color=tempcolor_line_graph_9] at (p9) {$\bullet$};
+        	\coordinate (p10) at (0.89,-0.06);
+        	\coordinate (p10_orig) at (0.89,0.00);
+        	\draw[dotted, thin] (p10) -- (p10_orig);
+        	\definecolor{tempcolor_line_graph_10}{RGB}{ 218, 136, 74 };
+        	\node[ultra thick, color=tempcolor_line_graph_10] at (p10) {$\bullet$};
+        	\coordinate (p11) at (0.97,-0.04);
+        	\coordinate (p11_orig) at (0.97,0.00);
+        	\draw[dotted, thin] (p11) -- (p11_orig);
+        	\definecolor{tempcolor_line_graph_11}{RGB}{ 216, 131, 72 };
+        	\node[ultra thick, color=tempcolor_line_graph_11] at (p11) {$\bullet$};
+        	\coordinate (p12) at (1.05,-0.33);
+        	\coordinate (p12_orig) at (1.05,0.00);
+        	\draw[dotted, thin] (p12) -- (p12_orig);
+        	\definecolor{tempcolor_line_graph_12}{RGB}{ 231, 162, 85 };
+        	\node[ultra thick, color=tempcolor_line_graph_12] at (p12) {$\bullet$};
+        	\coordinate (p13) at (1.13,-0.29);
+        	\coordinate (p13_orig) at (1.13,0.00);
+        	\draw[dotted, thin] (p13) -- (p13_orig);
+        	\definecolor{tempcolor_line_graph_13}{RGB}{ 229, 157, 83 };
+        	\node[ultra thick, color=tempcolor_line_graph_13] at (p13) {$\bullet$};
+        	\coordinate (p14) at (1.21,0.22);
+        	\coordinate (p14_orig) at (1.21,0.00);
+        	\draw[dotted, thin] (p14) -- (p14_orig);
+        	\definecolor{tempcolor_line_graph_14}{RGB}{ 203, 105, 62 };
+        	\node[ultra thick, color=tempcolor_line_graph_14] at (p14) {$\bullet$};
+        	\coordinate (p15) at (1.29,0.58);
+        	\coordinate (p15_orig) at (1.29,0.00);
+        	\draw[dotted, thin] (p15) -- (p15_orig);
+        	\definecolor{tempcolor_line_graph_15}{RGB}{ 185, 69, 47 };
+        	\node[ultra thick, color=tempcolor_line_graph_15] at (p15) {$\bullet$};
+        	\coordinate (p16) at (1.37,0.57);
+        	\coordinate (p16_orig) at (1.37,0.00);
+        	\draw[dotted, thin] (p16) -- (p16_orig);
+        	\definecolor{tempcolor_line_graph_16}{RGB}{ 185, 69, 47 };
+        	\node[ultra thick, color=tempcolor_line_graph_16] at (p16) {$\bullet$};
+        	\coordinate (p17) at (1.45,0.62);
+        	\coordinate (p17_orig) at (1.45,0.00);
+        	\draw[dotted, thin] (p17) -- (p17_orig);
+        	\definecolor{tempcolor_line_graph_17}{RGB}{ 182, 64, 45 };
+        	\node[ultra thick, color=tempcolor_line_graph_17] at (p17) {$\bullet$};
+        	\coordinate (p18) at (1.52,0.77);
+        	\coordinate (p18_orig) at (1.52,0.00);
+        	\draw[dotted, thin] (p18) -- (p18_orig);
+        	\definecolor{tempcolor_line_graph_18}{RGB}{ 177, 54, 41 };
+        	\node[ultra thick, color=tempcolor_line_graph_18] at (p18) {$\bullet$};
+        	\coordinate (p19) at (1.60,0.45);
+        	\coordinate (p19_orig) at (1.60,0.00);
+        	\draw[dotted, thin] (p19) -- (p19_orig);
+        	\definecolor{tempcolor_line_graph_19}{RGB}{ 193, 85, 53 };
+        	\node[ultra thick, color=tempcolor_line_graph_19] at (p19) {$\bullet$};
+        	\coordinate (p20) at (1.68,-0.27);
+        	\coordinate (p20_orig) at (1.68,0.00);
+        	\draw[dotted, thin] (p20) -- (p20_orig);
+        	\definecolor{tempcolor_line_graph_20}{RGB}{ 229, 157, 83 };
+        	\node[ultra thick, color=tempcolor_line_graph_20] at (p20) {$\bullet$};
+        	\coordinate (p21) at (1.76,-0.67);
+        	\coordinate (p21_orig) at (1.76,0.00);
+        	\draw[dotted, thin] (p21) -- (p21_orig);
+        	\definecolor{tempcolor_line_graph_21}{RGB}{ 247, 193, 97 };
+        	\node[ultra thick, color=tempcolor_line_graph_21] at (p21) {$\bullet$};
+        	\coordinate (p22) at (1.84,-0.57);
+        	\coordinate (p22_orig) at (1.84,0.00);
+        	\draw[dotted, thin] (p22) -- (p22_orig);
+        	\definecolor{tempcolor_line_graph_22}{RGB}{ 244, 188, 95 };
+        	\node[ultra thick, color=tempcolor_line_graph_22] at (p22) {$\bullet$};
+        	\coordinate (p23) at (1.92,-0.50);
+        	\coordinate (p23_orig) at (1.92,0.00);
+        	\draw[dotted, thin] (p23) -- (p23_orig);
+        	\definecolor{tempcolor_line_graph_23}{RGB}{ 239, 178, 91 };
+        	\node[ultra thick, color=tempcolor_line_graph_23] at (p23) {$\bullet$};
+        	\coordinate (p24) at (2.00,-0.57);
+        	\coordinate (p24_orig) at (2.00,0.00);
+        	\draw[dotted, thin] (p24) -- (p24_orig);
+        	\definecolor{tempcolor_line_graph_24}{RGB}{ 242, 183, 93 };
+        	\node[ultra thick, color=tempcolor_line_graph_24] at (p24) {$\bullet$};
+        \end{axis}
+
+        \Vertex[x=0.70,y=0.,size=0.2,color={182,64,45},RGB]{0}
+        \Vertex[x=1.21,y=0.,size=0.2,color={190,80,51},RGB]{1}
+        \Vertex[x=1.73,y=0.,size=0.2,color={190,80,51},RGB]{2}
+        \Vertex[x=2.24,y=0.,size=0.2,color={203,105,62},RGB]{3}
+        \Vertex[x=2.75,y=0.,size=0.2,color={231,162,85},RGB]{4}
+        \Vertex[x=3.26,y=0.,size=0.2,color={244,188,95},RGB]{5}
+        \Vertex[x=3.78,y=0.,size=0.2,color={234,167,87},RGB]{6}
+        \Vertex[x=4.29,y=0.,size=0.2,color={224,147,78},RGB]{7}
+        \Vertex[x=4.80,y=0.,size=0.2,color={231,162,85},RGB]{8}
+        \Vertex[x=5.32,y=0.,size=0.2,color={231,162,85},RGB]{9}
+        \Vertex[x=5.83,y=0.,size=0.2,color={218,136,74},RGB]{10}
+        \Vertex[x=6.34,y=0.,size=0.2,color={216,131,72},RGB]{11}
+        \Vertex[x=6.85,y=0.,size=0.2,color={231,162,85},RGB]{12}
+        \Vertex[x=7.37,y=0.,size=0.2,color={229,157,83},RGB]{13}
+        \Vertex[x=7.88,y=0.,size=0.2,color={203,105,62},RGB]{14}
+        \Vertex[x=8.39,y=0.,size=0.2,color={185,69,47},RGB]{15}
+        \Vertex[x=8.91,y=0.,size=0.2,color={185,69,47},RGB]{16}
+        \Vertex[x=9.42,y=0.,size=0.2,color={182,64,45},RGB]{17}
+        \Vertex[x=9.93,y=0.,size=0.2,color={177,54,41},RGB]{18}
+        \Vertex[x=10.44,y=0.,size=0.2,color={193,85,53},RGB]{19}
+        \Vertex[x=10.96,y=0.,size=0.2,color={229,157,83},RGB]{20}
+        \Vertex[x=11.47,y=0.,size=0.2,color={247,193,97},RGB]{21}
+        \Vertex[x=11.98,y=0.,size=0.2,color={244,188,95},RGB]{22}
+        \Vertex[x=12.49,y=0.,size=0.2,color={239,178,91},RGB]{23}
+        \Vertex[x=13.01,y=0.,size=0.2,color={242,183,93},RGB]{24}
+        \Edge[lw=0.5,Direct](0)(1)
+        \Edge[lw=0.5,Direct](1)(2)
+        \Edge[lw=0.5,Direct](2)(3)
+        \Edge[lw=0.5,Direct](3)(4)
+        \Edge[lw=0.5,Direct](4)(5)
+        \Edge[lw=0.5,Direct](5)(6)
+        \Edge[lw=0.5,Direct](6)(7)
+        \Edge[lw=0.5,Direct](7)(8)
+        \Edge[lw=0.5,Direct](8)(9)
+        \Edge[lw=0.5,Direct](9)(10)
+        \Edge[lw=0.5,Direct](10)(11)
+        \Edge[lw=0.5,Direct](11)(12)
+        \Edge[lw=0.5,Direct](12)(13)
+        \Edge[lw=0.5,Direct](13)(14)
+        \Edge[lw=0.5,Direct](14)(15)
+        \Edge[lw=0.5,Direct](15)(16)
+        \Edge[lw=0.5,Direct](16)(17)
+        \Edge[lw=0.5,Direct](17)(18)
+        \Edge[lw=0.5,Direct](18)(19)
+        \Edge[lw=0.5,Direct](19)(20)
+        \Edge[lw=0.5,Direct](20)(21)
+        \Edge[lw=0.5,Direct](21)(22)
+        \Edge[lw=0.5,Direct](22)(23)
+        \Edge[lw=0.5,Direct](23)(24)
+    \end{tikzpicture}
+\end{document}

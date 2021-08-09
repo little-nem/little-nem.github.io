@@ -1,0 +1,42 @@
+\begin{axis}[%
+    axis equal,
+    hide axis,
+    width=10cm,
+    height=10cm,
+    axis lines = center,
+    xlabel = {},
+    ylabel = {},
+    zlabel = {},
+    ticks=none,
+    enlargelimits=0.3,
+    colormap={whiteblue}{color=(blue) color=(white)},
+    colormap={gb}{color=(green) color=(yellow)
+        color=(brown)},
+    view/h=45,
+    scale uniformly strategy=units only,
+]
+\addplot3[%
+    opacity = 0.95,
+    z buffer = sort,
+    surf,
+    samples = 23,
+    variable = \u,
+    variable y = \v,
+    domain = 0:360,
+    y domain = 0:180,
+    colormap={slategraywhite}{rgb255=(97,130,181) rgb255=(218, 192, 166)},
+]
+({sin(u)*cos(v)}, {sin(u)*sin(v)}, {cos(u)});
+
+\draw[fill=white,fill opacity=0.4,
+    tangent plane=at {({cos(65)-0.5*sin(65)},-0.5,{sin(65)})} with 
+    vectors {({sin(65)},0,{-cos(65)})} and {(0,1,0)}];
+
+\end{axis}
+
+\coordinate (x) at (4.3,5);
+
+\draw[fill] (x) circle (0.03) node[below] {$x$};
+
+\draw[->] (x) to node[left] {$e_1$} (4.02,5.35) ;
+\draw[->] (x) to (4.7,5.21) node[below] {$e_2$};

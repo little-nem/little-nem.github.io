@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='graph_distance/graph_distance.svg' alt='graph_distance'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>colortbl<span class="nb">}</span> <span class="c">% to color rows or columns of matrices</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz-network<span class="nb">}</span> <span class="c">% provides graph / network utilities (Edge, Node, etc)</span>
+<!--           -->
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>calc<span class="nb">}</span> <span class="c">% to do some computations on the coordinates</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="k">\input</span><span class="nb">{</span>colors.tex<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;]
+<!--           -->        <span class="k">\node</span> (g1) at (0,0) <span class="nb">{</span><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=0.3, every node/.style=<span class="nb">{</span>scale=0.7<span class="nb">}</span>]
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=3.9,y=2.1,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>0<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=4.6,y=3.8,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>1<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=3.3,y=3.4,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>2<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=2.5,y=4.4,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>3<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=2.7,y=5.6,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>4<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=1.4,y=5.5,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>5<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=0.5,y=4.7,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>6<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=1.8,y=3.2,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>7<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=0.2,y=3.1,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>8<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=0.8,y=1.6,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>9<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=0.5,y=0.7,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>10<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=2.5,y=0.3,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>11<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=2.2,y=1.4,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>12<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=5.6,y=1.0,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>13<span class="nb">}</span>
+<!--           -->                                <span class="k">\Vertex</span><span class="na">[x=5.8,y=2.6,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>14<span class="nb">}</span>
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(1)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(14)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(2)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(13)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(7)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(11)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(1)(2)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(1)(3)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(1)(14)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(2)(3)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(2)(4)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(2)(12)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(3)(4)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(3)(5)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(3)(8)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(4)(5)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(4)(6)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(5)(6)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(5)(7)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(6)(7)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(6)(8)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(7)(9)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(8)(10)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(9)(10)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(9)(11)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(9)(12)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(10)(11)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(10)(12)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(11)(12)
+<!--           -->                                <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(13)(14)
+<!--           -->                             <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}}</span>;
+<!--           -->        <span class="k">\node</span> (g2) at (7,0) <span class="nb">{</span><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=0.3, every node/.style=<span class="nb">{</span>scale=0.7<span class="nb">}</span>]
+<!--           -->
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=2.5,y=1.0,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>0<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=4.7,y=5.8,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>1<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=5.3,y=4.5,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>2<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=4.0,y=4.6,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>3<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=4.5,y=3.3,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>4<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=3.0,y=3.5,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>5<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=1.8,y=2.5,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>6<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=1.9,y=3.2,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>7<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=1.2,y=1.7,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>8<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=2.7,y=1.8,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>9<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=0.6,y=2.8,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>10<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=3.7,y=2.4,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>11<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=4.6,y=0.7,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>12<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=4.4,y=1.8,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>13<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Vertex</span><span class="na">[x=3.3,y=0.2,size=0.3,color={196,193,209},RGB]</span><span class="nb">{</span>14<span class="nb">}</span>
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(14)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(13)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(8)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(6)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(0)(9)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(1)(2)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(1)(3)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(2)(3)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(2)(4)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(3)(4)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(3)(5)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(4)(5)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(4)(13)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(4)(11)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(5)(6)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(5)(7)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(5)(9)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(6)(7)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(6)(8)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(6)(10)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(7)(8)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(7)(10)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(7)(11)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(8)(9)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(8)(10)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(9)(14)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(11)(12)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(11)(13)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(12)(13)
+<!--           -->                                    <span class="k">\Edge</span><span class="na">[,bend=-8.5]</span>(12)(14)
+<!--           -->                              <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}}</span>;
+<!--           -->        <span class="k">\node</span> (n1) at (1,2) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb">{N}</span><span class="o">(</span><span class="m">0</span><span class="nb">, L_</span><span class="m">1</span><span class="nb">^{</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="o">)</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span> (n2) at (6,2) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb">{N}</span><span class="o">(</span><span class="m">0</span><span class="nb">, L_</span><span class="m">2</span><span class="nb">^{</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="o">)</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\draw</span><span class="na">[&lt;-&gt;, thick, bend right = -5, bend left=-5]</span> (g1) to node [below] <span class="nb">{</span>graph distance?<span class="nb">}</span> (g2);
+<!--           -->        <span class="k">\draw</span><span class="na">[-&gt;, dashed, bend left = 30]</span> (g1) to (n1.west);
+<!--           -->        <span class="k">\draw</span><span class="na">[-&gt;, dashed, bend right = 30]</span> (g2) to (n2.east);
+<!--           -->        <span class="k">\draw</span><span class="na">[&lt;-&gt;, thick, bend right = 5, bend left=5]</span> (n1) to node [above] <span class="nb">{</span>optimal transport<span class="nb">}</span> (n2);
+<!--           -->    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

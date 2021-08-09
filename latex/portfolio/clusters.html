@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='clusters/clusters.svg' alt='clusters'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="k">\input</span><span class="nb">{</span>colors.tex<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% some functions to generate random numbers from StackExchange</span>
+<!--           --><span class="c">% (see https://tex.stackexchange.com/a/148133)</span>
+<!--           --><span class="k">\makeatletter</span>
+<!--           --><span class="k">\pgfmathdeclarefunction</span><span class="nb">{</span>invgauss<span class="nb">}{</span>2<span class="nb">}{</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathln</span><span class="nb">{</span>#1<span class="nb">}</span><span class="c">% &lt;- might need parsing</span>
+<!--           -->  <span class="k">\pgfmathmultiply</span>@<span class="nb">{</span><span class="k">\pgfmathresult</span><span class="nb">}{</span>-2<span class="nb">}</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathsqrt</span>@<span class="nb">{</span><span class="k">\pgfmathresult</span><span class="nb">}</span><span class="c">%</span>
+<!--           -->  <span class="k">\let\@</span>radius=<span class="k">\pgfmathresult</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathmultiply</span><span class="nb">{</span>6.28318531<span class="nb">}{</span>#2<span class="nb">}</span><span class="c">% &lt;- might need parsing</span>
+<!--           -->  <span class="k">\pgfmathdeg</span>@<span class="nb">{</span><span class="k">\pgfmathresult</span><span class="nb">}</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathcos</span>@<span class="nb">{</span><span class="k">\pgfmathresult</span><span class="nb">}</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathmultiply</span>@<span class="nb">{</span><span class="k">\pgfmathresult</span><span class="nb">}{</span><span class="k">\@</span>radius<span class="nb">}</span><span class="c">%</span>
+<!--           --><span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\pgfmathdeclarefunction</span><span class="nb">{</span>randnormal<span class="nb">}{</span>0<span class="nb">}{</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathrnd</span>@
+<!--           -->  <span class="k">\ifdim\pgfmathresult</span> pt=0.0pt<span class="k">\relax</span><span class="c">%</span>
+<!--           -->    <span class="k">\def\pgfmathresult</span><span class="nb">{</span>0.00001<span class="nb">}</span><span class="c">%</span>
+<!--           -->  <span class="k">\fi</span><span class="c">%</span>
+<!--           -->  <span class="k">\let\@</span>tmp=<span class="k">\pgfmathresult</span><span class="c">%</span>
+<!--           -->  <span class="k">\pgfmathrnd</span>@<span class="c">%</span>
+<!--           -->  <span class="k">\ifdim\pgfmathresult</span> pt=0.0pt<span class="k">\relax</span><span class="c">%</span>
+<!--           -->    <span class="k">\def\pgfmathresult</span><span class="nb">{</span>0.00001<span class="nb">}</span><span class="c">%</span>
+<!--           -->  <span class="k">\fi</span>
+<!--           -->  <span class="k">\pgfmathinvgauss</span>@<span class="nb">{</span><span class="k">\pgfmathresult</span><span class="nb">}{</span><span class="k">\@</span>tmp<span class="nb">}</span><span class="c">%</span>
+<!--           --><span class="nb">}</span>
+<!--           --><span class="k">\makeatother</span>
+<!--           -->
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           -->        <span class="k">\pgfmathsetseed</span><span class="nb">{</span>123<span class="nb">}</span> <span class="c">% set the seed for reproducible documents</span>
+<!--           -->
+<!--           -->        <span class="k">\draw</span><span class="na">[fill=gray!30, line width=5pt, draw=white]</span>
+<!--           -->            plot[smooth, samples=100, domain=0:2] (<span class="k">\x</span>,<span class="k">\x</span> * <span class="k">\x</span>) -| (-1,0) -- cycle;
+<!--           -->        <span class="k">\draw</span><span class="na">[fill=brokengrey!30, line width=5pt, draw=white]</span>
+<!--           -->            plot[smooth, samples=100, domain=0:1.5] (<span class="k">\x</span>,<span class="k">\x</span> * <span class="k">\x</span>) -| (4,0) -- cycle;
+<!--           -->        <span class="k">\draw</span><span class="na">[fill=brokenwhite!30, line width=5pt, draw=white]</span>
+<!--           -->            plot[smooth, samples=100, domain=1.5:2] (<span class="k">\x</span>,<span class="k">\x</span> * <span class="k">\x</span>) -| (4,1.5*1.5) -- cycle;
+<!--           -->
+<!--           -->        <span class="k">\node</span> (l1) at (-0.5,3.5) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb"> L_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span> (l2) at (3.5,3.5) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb"> L_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span> (l2) at (3.5,0.5) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb"> L_</span><span class="m">3</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->        <span class="k">\foreach</span> <span class="k">\i</span> in <span class="nb">{</span>0,...,10<span class="nb">}</span> <span class="nb">{</span>
+<!--           -->          <span class="k">\fill</span> [opacity=0.8] (0.5+randnormal/3, 2.5+randnormal/4) circle (0.05);
+<!--           -->          <span class="k">\fill</span> [opacity=0.8] (3+randnormal/5, 2.9+randnormal/5) circle (0.05);
+<!--           -->          <span class="k">\fill</span> [opacity=0.8] (1.9+randnormal/4, 1+randnormal/5) circle (0.05);
+<!--           -->          <span class="k">\fill</span> [opacity=0.8] (0.2+randnormal/5, 0.8+randnormal/4) circle (0.05);
+<!--           -->        <span class="nb">}</span>
+<!--           -->
+<!--           -->        <span class="k">\draw</span> [ultra thick, red, densely dashed]
+<!--           -->            plot [smooth cycle, tension=1] coordinates <span class="nb">{</span>(0,2) (1,1.8) (1.2,3) (0,2.8)<span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[red]</span> (c3) at (-0.7,2.5) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb"> C_</span><span class="m">3</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->        <span class="k">\draw</span> [ultra thick, blue, densely dashed]
+<!--           -->            plot [smooth cycle, tension=1] coordinates <span class="nb">{</span>(2.5,2.8) (3.7,2.5) (3,3.5)<span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[blue]</span> (c1) at (2.2,3.5) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb"> C_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->        <span class="k">\draw</span> [ultra thick, orange, densely dashed]
+<!--           -->            plot [smooth cycle, tension=1] coordinates <span class="nb">{</span>(-0.5,0.3) (2.5, 0.3) (2,1.8) (1,1.2) (0, 1.3)<span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[orange]</span> (c2) at (2.9,1.5) <span class="nb">{</span><span class="s">$</span><span class="nv">\mathcal</span><span class="nb"> C_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../images/profil2.jpg">
+                <h1> <a href="../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='deblai_remblai/deblai_remblai.svg' alt='deblai_remblai'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper, 12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% a nice font</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="c">% basic text stuff</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="c">% main tikz package</span>
+<!--           -->
+<!--           --><span class="c">% for a nicer colorscheme</span>
+<!--           --><span class="k">\input</span><span class="nb">{</span>colors.tex<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;, xscale=0.8]
+<!--           -->        <span class="k">\draw</span><span class="na">[fill=brokengrey!20]</span> (-1, -1.8) rectangle (9, 0);
+<!--           -->        <span class="k">\draw</span><span class="na">[fill=red!90, domain=0:2, smooth, variable=\x, fill opacity=0.9]</span>
+<!--           -->         plot(<span class="nb">{</span>1.5*<span class="k">\x</span><span class="nb">}</span>, <span class="nb">{</span><span class="k">\x</span> * (27.21 + <span class="k">\x</span> * (-126.6 + <span class="k">\x</span> * (229.9 + <span class="k">\x</span> * (-200.7
+<!--           -->          + <span class="k">\x</span> * (84.24 - 13.61 * <span class="k">\x</span>)))))<span class="nb">}</span>) -- (3.05, 0);
+<!--           -->        <span class="k">\node</span><span class="na">[red]</span> at (-0.2, 0.7) <span class="nb">{</span><span class="s">$</span><span class="nv">\mu</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\draw</span><span class="na">[fill=blue, fill opacity=0.9]</span> plot[smooth] coordinates <span class="nb">{</span>
+<!--           -->         (5, 0)  (5.1, -1.2)  (5.5, -1.2)
+<!--           -->         (6, -0.8)  (6.4, -1.2) (6.9, -1.)
+<!--           -->         (7.3, -1.3)  (7.7, -1)  (7.8, 0)<span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[blue!90]</span> at (8, -1.2) <span class="nb">{</span><span class="s">$</span><span class="nv">\nu</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\draw</span><span class="na">[ultra thick, yellow]</span> (0.65, 0) -- (0.65, 0.82);
+<!--           -->
+<!--           -->        <span class="k">\draw</span><span class="na">[domain=0:2, smooth, variable=\x,]</span>
+<!--           -->         plot(<span class="nb">{</span>1.5*<span class="k">\x</span><span class="nb">}</span>, <span class="nb">{</span><span class="k">\x</span> * (27.21 + <span class="k">\x</span> * (-126.6 + <span class="k">\x</span> * (229.9 + <span class="k">\x</span> * (-200.7
+<!--           -->          + <span class="k">\x</span> * (84.24 - 13.61 * <span class="k">\x</span>)))))<span class="nb">}</span>) -- (3.05, 0);
+<!--           -->
+<!--           -->        <span class="k">\draw</span><span class="na">[ultra thick, yellow]</span> (6., 0) -- (6., -0.8);
+<!--           -->        <span class="k">\node</span><span class="na">[red!90]</span> (x) at (0.65, -0.15) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[blue!90]</span> (y) at (6., 0.15) <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[below]</span> at (x) <span class="nb">{</span><span class="s">$</span><span class="nb">x</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\node</span><span class="na">[above]</span> at (y) <span class="nb">{</span><span class="s">$</span><span class="nb">y </span><span class="o">=</span><span class="nb"> </span><span class="nv">\pi</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->        <span class="k">\coordinate</span> (y) at (5.9, 0.1);
+<!--           -->        <span class="k">\draw</span><span class="na">[-&gt;, ultra thick, green, bend right=30]</span>
+<!--           -->         (x) edge node[below right=0.0 and -2.2 of x, black] <span class="nb">{</span><span class="s">$</span><span class="nb">{</span><span class="nv">\color</span><span class="nb">{green}c}</span><span class="o">(</span><span class="nb">x, </span><span class="nv">\pi</span><span class="o">(</span><span class="nb">x</span><span class="o">))</span><span class="nb">{</span><span class="nv">\color</span><span class="nb">{red}</span><span class="nv">\mu</span><span class="nb">}</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="s">$</span><span class="nb">}</span> (y);
+<!--           -->    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

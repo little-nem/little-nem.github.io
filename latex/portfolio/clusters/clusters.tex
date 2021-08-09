@@ -1,0 +1,78 @@
+\documentclass[a4paper, 12pt]{article}
+
+% a nice font
+\usepackage{kpfonts}
+
+% basic text stuff
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz} % main tikz package
+
+% for a nicer colorscheme
+\input{colors.tex}
+
+% some functions to generate random numbers from StackExchange
+% (see https://tex.stackexchange.com/a/148133)
+\makeatletter
+\pgfmathdeclarefunction{invgauss}{2}{%
+  \pgfmathln{#1}% <- might need parsing
+  \pgfmathmultiply@{\pgfmathresult}{-2}%
+  \pgfmathsqrt@{\pgfmathresult}%
+  \let\@radius=\pgfmathresult%
+  \pgfmathmultiply{6.28318531}{#2}% <- might need parsing
+  \pgfmathdeg@{\pgfmathresult}%
+  \pgfmathcos@{\pgfmathresult}%
+  \pgfmathmultiply@{\pgfmathresult}{\@radius}%
+}
+
+\pgfmathdeclarefunction{randnormal}{0}{%
+  \pgfmathrnd@
+  \ifdim\pgfmathresult pt=0.0pt\relax%
+    \def\pgfmathresult{0.00001}%
+  \fi%
+  \let\@tmp=\pgfmathresult%
+  \pgfmathrnd@%
+  \ifdim\pgfmathresult pt=0.0pt\relax%
+    \def\pgfmathresult{0.00001}%
+  \fi
+  \pgfmathinvgauss@{\pgfmathresult}{\@tmp}%
+}
+\makeatother
+
+
+\begin{document}
+    \begin{tikzpicture}
+        \pgfmathsetseed{123} % set the seed for reproducible documents
+
+        \draw[fill=gray!30, line width=5pt, draw=white]
+            plot[smooth, samples=100, domain=0:2] (\x,\x * \x) -| (-1,0) -- cycle;   
+        \draw[fill=brokengrey!30, line width=5pt, draw=white]
+            plot[smooth, samples=100, domain=0:1.5] (\x,\x * \x) -| (4,0) -- cycle;   
+        \draw[fill=brokenwhite!30, line width=5pt, draw=white]
+            plot[smooth, samples=100, domain=1.5:2] (\x,\x * \x) -| (4,1.5*1.5) -- cycle;
+
+        \node (l1) at (-0.5,3.5) {$\mathcal L_1$};
+        \node (l2) at (3.5,3.5) {$\mathcal L_2$};
+        \node (l2) at (3.5,0.5) {$\mathcal L_3$};
+
+        \foreach \i in {0,...,10} {
+          \fill [opacity=0.8] (0.5+randnormal/3, 2.5+randnormal/4) circle (0.05);
+          \fill [opacity=0.8] (3+randnormal/5, 2.9+randnormal/5) circle (0.05);
+          \fill [opacity=0.8] (1.9+randnormal/4, 1+randnormal/5) circle (0.05);
+          \fill [opacity=0.8] (0.2+randnormal/5, 0.8+randnormal/4) circle (0.05);
+        }
+
+        \draw [ultra thick, red, densely dashed]
+            plot [smooth cycle, tension=1] coordinates {(0,2) (1,1.8) (1.2,3) (0,2.8)};
+        \node[red] (c3) at (-0.7,2.5) {$\mathcal C_3$};
+        
+        \draw [ultra thick, blue, densely dashed]
+            plot [smooth cycle, tension=1] coordinates {(2.5,2.8) (3.7,2.5) (3,3.5)};
+        \node[blue] (c1) at (2.2,3.5) {$\mathcal C_1$};
+
+        \draw [ultra thick, orange, densely dashed]
+            plot [smooth cycle, tension=1] coordinates {(-0.5,0.3) (2.5, 0.3) (2,1.8) (1,1.2) (0, 1.3)};
+        \node[orange] (c2) at (2.9,1.5) {$\mathcal C_2$};
+    \end{tikzpicture}
+\end{document}
