@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../../images/profil2.jpg">
+                <h1> <a href="../../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='laplace_triangle/laplace_triangle.svg' alt='laplace_triangle'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>standalone<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>decorations.pathreplacing<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           --><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=1.25]
+<!--           -->    <span class="k">\definecolor</span><span class="nb">{</span>facecol<span class="nb">}{</span>rgb<span class="nb">}{</span>0.6,0.6,0.8<span class="nb">}</span>
+<!--           -->    <span class="k">\coordinate</span> (i) at (0, 0);
+<!--           -->    <span class="k">\foreach</span> <span class="k">\a</span> in <span class="nb">{</span>30, 90, ..., 330<span class="nb">}</span> <span class="nb">{</span>
+<!--           -->     <span class="k">\coordinate</span> (j) at (<span class="nb">{</span><span class="k">\a</span>-30<span class="nb">}</span>:<span class="nb">{</span>2/sqrt(3)<span class="nb">}</span>);
+<!--           -->     <span class="k">\coordinate</span> (k) at (<span class="nb">{</span><span class="k">\a</span>+30<span class="nb">}</span>:<span class="nb">{</span>2/sqrt(3)<span class="nb">}</span>);
+<!--           -->     <span class="k">\fill</span><span class="na">[facecol, opacity=.6, ]</span> (i) -- (j) -- (k) -- cycle;
+<!--           -->
+<!--           -->     <span class="k">\coordinate</span> (j) at (<span class="nb">{</span><span class="k">\a</span><span class="nb">}</span>:2);
+<!--           -->     <span class="k">\coordinate</span> (k) at (<span class="nb">{</span><span class="k">\a</span>+60<span class="nb">}</span>:2);
+<!--           -->     <span class="k">\draw</span><span class="na">[fill=facecol, opacity=.6]</span> (i) -- (j) -- (k) -- cycle;
+<!--           -->     <span class="k">\draw</span><span class="na">[line width=2.4pt]</span> (j) -- (k);
+<!--           -->     <span class="k">\node</span> at (j) <span class="nb">{</span><span class="k">\Large</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="nb">}</span>
+<!--           -->    <span class="k">\node</span> at (i) <span class="nb">{</span><span class="k">\Large</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=1pt, dashed]</span> (0:<span class="nb">{</span>2/sqrt(3)<span class="nb">}</span>) <span class="k">\foreach</span> <span class="k">\a</span> in <span class="nb">{</span>60, 120, ..., 360<span class="nb">}</span> <span class="nb">{</span>
+<!--           -->     -- (<span class="nb">{</span><span class="k">\a</span><span class="nb">}</span>:<span class="nb">{</span>2/sqrt(3)<span class="nb">}</span>)
+<!--           -->    <span class="nb">}</span>;
+<!--           -->    <span class="k">\node</span><span class="na">[right=4pt]</span> at (i) <span class="nb">{</span><span class="s">$</span><span class="nb">i</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\node</span><span class="na">[below=2pt]</span> at (0, -2) <span class="nb">{</span><span class="s">$</span><span class="nb">j</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\node</span><span class="na">[right=2pt]</span> at (<span class="nb">{</span>2*cos(30)<span class="nb">}</span>, <span class="nb">{</span>-2*sin(30)<span class="nb">}</span>) <span class="nb">{</span><span class="s">$</span><span class="nb">k</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\node</span><span class="na">[]</span> at (120:.6) <span class="nb">{</span><span class="s">$</span><span class="nb">C_i</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\node</span><span class="na">[above]</span> at (0.3, 1) <span class="nb">{</span><span class="s">$</span><span class="nv">\partial</span><span class="nb"> C_i</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (-150:2)<span class="nb">{}</span>+(-30:0.4) arc (-30:30:0.4);
+<!--           -->    <span class="k">\node</span><span class="na">[right=15pt]</span> at (210:2) <span class="nb">{</span><span class="s">$</span><span class="nv">\beta</span><span class="nb">_{ij}</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (-30:2)<span class="nb">{}</span>+(-150:0.4) arc (-150:-210:0.4);
+<!--           -->    <span class="k">\node</span><span class="na">[left=15pt]</span> at (-30:2) <span class="nb">{</span><span class="s">$</span><span class="nv">\alpha</span><span class="nb">_{ij}</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=2pt, -&gt;]</span> (0, -1) -- node[right] <span class="nb">{</span><span class="s">$</span><span class="nv">\vec</span><span class="nb">{n}_j</span><span class="s">$</span><span class="nb">}</span> (0, -1.66);
+<!--           -->    <span class="k">\draw</span><span class="na">[decorate, decoration={brace,amplitude=8pt}, thick, yshift=1pt]</span> (-120:<span class="nb">{</span>2/sqrt(3)<span class="nb">}</span>) -- node[above=3pt] <span class="nb">{</span><span class="s">$</span><span class="nv">\hspace</span><span class="nb">{</span><span class="m">12</span><span class="nb">pt} c_{ij}</span><span class="s">$</span><span class="nb">}</span> (-60:<span class="nb">{</span>2/sqrt(3)<span class="nb">}</span>);
+<!--           -->
+<!--           -->    <span class="k">\coordinate</span> (i) at (4, -1.5);
+<!--           -->    <span class="k">\coordinate</span> (j) at (7, -1.5);
+<!--           -->    <span class="k">\coordinate</span> (k) at (5.5, 1.5);
+<!--           -->    <span class="k">\coordinate</span> (c) at (5.5, -.375);
+<!--           -->    <span class="k">\coordinate</span> (midi) at (4.75, 0);
+<!--           -->    <span class="k">\coordinate</span> (midk) at (6.25, 0);
+<!--           -->    <span class="k">\fill</span><span class="na">[fill=facecol, opacity=.6]</span> (i) -- (j) -- (k) -- cycle;
+<!--           -->    <span class="k">\fill</span><span class="na">[fill=facecol, opacity=.6]</span> (k) -- (midi) -- (c) -- (midk) -- cycle;
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=2.4pt]</span> (i) -- node[pos=.3] <span class="nb">{</span><span class="s">$</span><span class="nb">|</span><span class="s">$</span><span class="nb">}</span> node[pos=.7] <span class="nb">{</span><span class="s">$</span><span class="nb">|</span><span class="s">$</span><span class="nb">}</span> (j) -- node[pos=.3, sloped] <span class="nb">{</span><span class="s">$</span><span class="nb">||</span><span class="s">$</span><span class="nb">}</span> node[pos=.7, sloped] <span class="nb">{</span><span class="s">$</span><span class="nb">||</span><span class="s">$</span><span class="nb">}</span> (k) -- node[pos=.3, sloped] <span class="nb">{</span><span class="s">$</span><span class="o">//</span><span class="s">$</span><span class="nb">}</span> node[pos=.7, sloped] <span class="nb">{</span><span class="s">$</span><span class="o">//</span><span class="s">$</span><span class="nb">}</span> (i);
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=1pt, dashed]</span> (5.5, -1.5) -- (c);
+<!--           -->    <span class="k">\draw</span><span class="na">[]</span> (5.3, -1.5) -- (5.3, -1.3) -- (5.5, -1.3);
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=1pt, dashed]</span> (midi) -- node[below left] <span class="nb">{</span><span class="s">$</span><span class="nb">x</span><span class="s">$</span><span class="nb">}</span> (c);
+<!--           -->    <span class="k">\draw</span><span class="na">[]</span> (midi)<span class="nb">{}</span>++(<span class="nb">{</span>atan(2)<span class="nb">}</span>:.2) --++ (<span class="nb">{</span>atan(2)-90<span class="nb">}</span>:.2) --++ (<span class="nb">{</span>180+atan(2)<span class="nb">}</span>:.2);
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=1pt, dashed]</span> (midk) -- (c);
+<!--           -->    <span class="k">\draw</span><span class="na">[]</span> (midk)<span class="nb">{}</span>++(<span class="nb">{</span>180-atan(2)<span class="nb">}</span>:.2) --++ (<span class="nb">{</span>-90-atan(2)<span class="nb">}</span>:.2) --++ (<span class="nb">{</span>-atan(2)<span class="nb">}</span>:.2);
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=.6pt]</span> (i) -- (c);
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=.6pt]</span> (j) -- (c);
+<!--           -->    <span class="k">\draw</span><span class="na">[line width=.6pt]</span> (k) -- (c);
+<!--           -->    <span class="k">\draw</span> (i) node <span class="nb">{</span><span class="k">\Large</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span> (j) node <span class="nb">{</span><span class="k">\Large</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span> (k) node <span class="nb">{</span><span class="k">\Large</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span> (c) node <span class="nb">{</span><span class="k">\Large</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span> (i) node[below=1pt] <span class="nb">{</span><span class="s">$</span><span class="nb">j</span><span class="s">$</span><span class="nb">}</span> (j) node[below=1pt] <span class="nb">{</span><span class="s">$</span><span class="nb">k</span><span class="s">$</span><span class="nb">}</span> (k) node[above=1pt] <span class="nb">{</span><span class="s">$</span><span class="nb">i</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\node</span> at (5.5, -1.9) <span class="nb">{</span><span class="k">\large</span> <span class="s">$</span><span class="nv">\alpha</span><span class="nb">_{ij}</span><span class="o">=</span><span class="nb">a</span><span class="o">+</span><span class="nb">c</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (i)<span class="nb">{}</span>+(0.4,0) arc (0:<span class="nb">{</span>atan(3/4)<span class="nb">}</span>:0.4) node[right, pos=.7] <span class="nb">{</span><span class="s">$</span><span class="nb">a</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (i)<span class="nb">{}</span>+(<span class="nb">{</span>atan(3/4)<span class="nb">}</span>:0.5) arc (<span class="nb">{</span>atan(3/4)<span class="nb">}</span>:<span class="nb">{</span>atan(2)<span class="nb">}</span>:0.5) node[above right=-2pt, pos=.4] <span class="nb">{</span><span class="s">$</span><span class="nb">b</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (j)<span class="nb">{}</span>+(-0.4,0) arc (180:<span class="nb">{</span>180-atan(3/4)<span class="nb">}</span>:0.4) node[left, pos=.7] <span class="nb">{</span><span class="s">$</span><span class="nb">a</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (j)<span class="nb">{}</span>+(<span class="nb">{</span>180-atan(3/4)<span class="nb">}</span>:0.6) arc (<span class="nb">{</span>180-atan(3/4)<span class="nb">}</span>:<span class="nb">{</span>180-atan(2)<span class="nb">}</span>:0.6) node[above left=-2pt, pos=.4] <span class="nb">{</span><span class="s">$</span><span class="nb">c</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (k)<span class="nb">{}</span>+(0,-0.5) arc (-90:<span class="nb">{</span>-90-atan(.5)<span class="nb">}</span>:0.5) node[below, pos=.6] <span class="nb">{</span><span class="s">$</span><span class="nb">b</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (k)<span class="nb">{}</span>+(0,-0.6) arc (-90:<span class="nb">{</span>-90+atan(.5)<span class="nb">}</span>:0.6) node[below, pos=.5] <span class="nb">{</span><span class="s">$</span><span class="nb">c</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->    <span class="k">\draw</span><span class="na">[thick]</span> (c)<span class="nb">{}</span>+(<span class="nb">{</span>180-atan(.5)<span class="nb">}</span>:.4) arc (<span class="nb">{</span>180-atan(.5)<span class="nb">}</span>:90:0.4) node[above left=-3pt, pos=.7] <span class="nb">{</span><span class="s">$</span><span class="nv">\theta</span><span class="s">$</span><span class="nb">}</span>;
+<!--           --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>```</code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../../../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../../../images/profil2.jpg">
+                <h1> <a href="../../../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../../../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../../../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+         	<header>
+         		<img src='wasserstein/wasserstein.svg' alt='wasserstein'>
+         	</header>
+<!--           --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>standalone<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<!--           --><span class="k">\usepackage</span><span class="nb">{</span>bm<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows.meta<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\definecolor</span><span class="nb">{</span>blue<span class="nb">}{</span>rgb<span class="nb">}{</span>0.38, 0.51, 0.71<span class="nb">}</span>
+<!--           --><span class="k">\definecolor</span><span class="nb">{</span>darkblue<span class="nb">}{</span>RGB<span class="nb">}{</span>17, 42, 60<span class="nb">}</span>
+<!--           --><span class="k">\definecolor</span><span class="nb">{</span>red<span class="nb">}{</span>RGB<span class="nb">}{</span>175, 49, 39<span class="nb">}</span>
+<!--           --><span class="k">\definecolor</span><span class="nb">{</span>orange<span class="nb">}{</span>RGB<span class="nb">}{</span>217, 156, 55<span class="nb">}</span>
+<!--           --><span class="k">\definecolor</span><span class="nb">{</span>green<span class="nb">}{</span>RGB<span class="nb">}{</span>144, 169, 84<span class="nb">}</span>
+<!--           --><span class="k">\definecolor</span><span class="nb">{</span>orangeD<span class="nb">}{</span>RGB<span class="nb">}{</span>75, 52, 11<span class="nb">}</span>
+<!--           -->
+<!--           --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--           -->    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=.58, &gt;=stealth]
+<!--           -->     <span class="k">\coordinate</span> (a) at (-9, -1.5);
+<!--           -->     <span class="k">\coordinate</span> (b) at (-4.5, -0.4);
+<!--           -->     <span class="k">\coordinate</span> (c) at (-5.2, 1);
+<!--           -->     <span class="k">\coordinate</span> (d) at (-8, .7);
+<!--           -->
+<!--           -->     <span class="k">\draw</span><span class="na">[ultra thick, blue]</span> (a) -- (b);
+<!--           -->     <span class="k">\draw</span><span class="na">[ultra thick, orange]</span> (b) -- (c);
+<!--           -->     <span class="k">\draw</span><span class="na">[ultra thick, green]</span> (c) -- (d);
+<!--           -->     <span class="k">\draw</span><span class="na">[ultra thick, red]</span> (d) -- (a);
+<!--           -->
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue]</span> at (a) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue, left]</span> at (a) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bm</span><span class="nb">{v}_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue]</span> at (b) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue, below]</span> at (b) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bm</span><span class="nb">{v}_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue]</span> at (c) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue, right]</span> at (c) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bm</span><span class="nb">{v}_</span><span class="m">3</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue]</span> at (d) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span><span class="na">[darkblue, left]</span> at (d) <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\bm</span><span class="nb">{v}_</span><span class="m">4</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->     <span class="k">\fill</span><span class="na">[green!60]</span> (-107.49:.4) -- (-107.49:1.4) arc(-107.49:-18.67:1.4) -- (-18.67:.4) arc(-18.67:-107.49:.4);
+<!--           -->     <span class="k">\fill</span><span class="na">[blue!60]</span> (-18.67:.4) -- (-18.67:1.4) arc(-18.67:127.15:1.4) -- (127.15:.4) arc(127.15:-18.67:.4);
+<!--           -->     <span class="k">\fill</span><span class="na">[red!60]</span> (127.15:.4) -- (127.15:1.4) arc(127.15:203.37:1.4) -- (203.37:.4) arc(203.37:127.15:.4);
+<!--           -->     <span class="k">\fill</span><span class="na">[orange!60]</span> (203.37:.4) -- (203.37:1.4) arc(203.37:252.51:1.4) -- (252.51:.4) arc(252.51:203.37:.4);
+<!--           -->
+<!--           -->     <span class="k">\draw</span> (0, 0) circle(.4);
+<!--           -->     <span class="k">\draw</span><span class="na">[thick]</span> (27.47:.4) -- (27.47:2.95) node[blue] <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span><span class="na">[thick]</span> (233.13:.4) -- (233.13:1.82) node[orange] <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span><span class="na">[thick]</span> (12.23:.4) -- (12.23:2.29) node[green] <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span><span class="na">[thick]</span> (131.11:.4) -- (131.11:2.14) node[red] <span class="nb">{</span><span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->     <span class="k">\draw</span><span class="na">[thick, -&gt;, darkblue]</span> (1.6, 0) arc(0:-107.49:1.6) node[right, pos=.5] <span class="nb">{</span><span class="k">\small</span> <span class="s">$</span><span class="nv">\pi</span><span class="nb"> </span><span class="nv">\alpha</span><span class="nb">_</span><span class="m">0</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\Theta</span><span class="nb">_{{</span><span class="nv">\color</span><span class="nb">{green} </span><span class="m">34</span><span class="nb">}}^</span><span class="m">0</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\node</span> at (-2.68, -1.5) <span class="nb">{</span><span class="k">\footnotesize</span> <span class="s">$</span><span class="nv">\displaystyle</span><span class="nb"> </span><span class="nv">\Theta</span><span class="nb">_{{</span><span class="nv">\color</span><span class="nb">{red} </span><span class="m">41</span><span class="nb">}}^</span><span class="m">1</span><span class="nb"> </span><span class="nv">\hspace</span><span class="nb">{</span><span class="o">-</span><span class="m">1</span><span class="nb">mm} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\Theta</span><span class="nb">_{{</span><span class="nv">\color</span><span class="nb">{orangeD} </span><span class="m">23</span><span class="nb">}}^</span><span class="m">0</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span><span class="na">[-&gt;]</span> (-2.68, -1.3) to[bend left]  (203.37:1.5);
+<!--           -->
+<!--           -->     <span class="k">\draw</span> (0, 1.7) -- (0, 1.85) node[above=-1mm] <span class="nb">{</span><span class="k">\scriptsize</span> <span class="s">$</span><span class="nv">\pi</span><span class="o">/</span><span class="m">4</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span> (1.7, 0) -- (1.85, 0) node[right=-1mm] <span class="nb">{</span><span class="k">\scriptsize</span> <span class="s">$</span><span class="m">0</span><span class="nb">,</span><span class="nv">\pi</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span> (-1.7, 0) -- (-1.85, 0) node[left=-1mm] <span class="nb">{</span><span class="k">\scriptsize</span> <span class="s">$</span><span class="nv">\pi</span><span class="o">/</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->     <span class="k">\draw</span> (0, -1.7) -- (0, -1.85) node[below=-1mm] <span class="nb">{</span><span class="k">\scriptsize</span> <span class="s">$</span><span class="m">3</span><span class="nv">\pi</span><span class="o">/</span><span class="m">4</span><span class="s">$</span><span class="nb">}</span>;
+<!--           -->
+<!--           -->    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--           --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>```</code></pre></div>
+         </main>
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>
