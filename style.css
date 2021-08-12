@@ -140,11 +140,10 @@ main > article img {
 
 main a:link {
     color: var(--blue-link);
-    font-weight:lighter;
 }
 
 main a:hover {
-    font-weight:bolder;
+    text-align: underline dotted;
 }
 
 main a:visited {
