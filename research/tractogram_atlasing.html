@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../images/photo_nemo.webp">
+                <h1> <a href="../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <div class="catalog_logo">
+                    <a href="../https://www.aramislab.fr/"><img src="../images/logos/aramis.png" height="30"></a>
+                    <a href="../https://institutducerveau-icm.org/"><img src="../images/logos/icm.png" height="30"></a>
+                    <a href="../https://www.sorbonne-universite.fr/"><img src="../images/logos/sorbonne.png" height="30"></a>
+                </div>
+
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+
+             <header>
+                 <h1 id="h1_tractogram_atlasing">Tractogram Atlasing</h1>
+                 <p>I studied several questions revolving around tractogram atlasing during the internship I made at the <a href="https://www.telecom-paris.fr/fr/recherche/laboratoires/laboratoire-traitement-et-communication-de-linformation-ltci/les-equipes-de-recherche/image-modelisation-analyse-geometrie-synthese-images/personnes">IMAGES team</a>.
+                 I worked there under the supervision of <a href="https://perso.telecom-paristech.fr/pgori/">Pietro Gori</a>, Pierre Rousillon and <a href="http://www.jeanfeydy.com/">Jean Feydy</a>.</p>
+                 <p>We proposed to use ideas from Optimal Transport theory to enhance the robustness of tractogram segmentation through atlasing transfer.</p>
+             </header>
+
+             <article>
+                 <h2 id="h2_limits_of_standard_methods">Limits of Standard Methods</h2>
+                 <p>Numerous classes of methods exist to perform spatial registration of medical data.
+                 They range from very simple linear transformations suited to small deformations to more complex non linear settings such as the <em>Large Deformation Diffeomorphic Metric Mapping</em> able to model more involved registrations.</p>
+                 <figure>
+
+                     <img src="tractogram_atlasing/images/small_deformations.webp" alt="Example of small-deformation based registration of a hand" width=750px height=500px>
+
+                         <figcaption> The upper-left hand is registrated onto the bottom-left hand using a small-deformation based method. The different colmuns showcase the effect of an hyperparameter of the method (from low values to high): here the size of the kernel upon which the vector-field of landmarks momentum is convoluted.</figcaption>
+
+                         </figure>
+                         <p>Those methods are robust and widely used for instance for MRI image (T1, T2, ...) registration.
+                         They often enforce a high regularity of the resulting deformation field.
+                         This reflects anatomical priors underlying the observed image.
+                         Indeed, such deformations should not introduce <em>wholes</em> or <em>anatomically incorrect</em> effects in the images.
+                         While this increases the robustness of the registration, those assumptions might not be suited when non homeomorphic changes appear in images (such as tumors) and quickly reaches their limits when applied on geometric data such as anatomical fibers.</p>
+                         <figure>
+
+                             <img src="tractogram_atlasing/images/curve_registration_easy.webp" alt="Example of a LDDMM registration of curves without topology break" width=750px>
+
+                                 <figcaption>Two example of curve registration where no topology rupture are needed to correctly match the curves. Here I used the LDDMM framework with a varifold metric.</figcaption>
+
+                                 </figure>
+
+                                 <figure>
+
+                                     <img src="tractogram_atlasing/images/curve_registration_topology.webp" alt="Example of a LDDMM registration of curves with a topology break" width=750px>
+
+                                         <figcaption>Conservation of topology during registration. The left problem is easy, since no topology rupture is needed to match the curves. The right problem is harder because the ideal registration would involve to un-cross the curves, which is not allowed in the LDDMM framework used here, hence the weird result.</figcaption>
+
+                                         </figure>
+                                         <h2 id="h2_solutions">Solutions</h2>
+                                         <h2 id="h2_appendix:_overview_of_all_anatomical_bundles_considered">Appendix: overview of all anatomical bundles considered</h2>
+                                         <p>You can click on a bundle to observe the fibers composing it (segmented on a <em>Human Connectome Project</em> tractogram).</p>
+                                         <table>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/CorpusCallosum.vtkjs">Corpus Callosum</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/ForcepsMajor.vtkjs">Forceps Major</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/ForcepsMinor.vtkjs">Forceps Minor</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftIFOF.vtkjs">Left IFOF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightIFOF.vtkjs">Right IFOF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftCingulum1.vtkjs">Left Cingulum1</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightCingulum1.vtkjs">Right Cingulum1</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftCingulum2.vtkjs">Left Cingulum2</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightCingulum2.vtkjs">Right Cingulum2</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftCingulum3.vtkjs">Left Cingulum3</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightCingulum3.vtkjs">Right Cingulum3</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftSFOF.vtkjs">Left SFOF</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightSFOF.vtkjs">Right SFOF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftUncinate.vtkjs">Left Uncinate</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightUncinate.vtkjs">Right Uncinate</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftArcuate.vtkjs">Left Arcuate</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightArcuate.vtkjs">Right Arcuate</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Leftcortico-spinal.vtkjs">Left cortico-spinal</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Rightcortico-spinal.vtkjs">Right cortico-spinal</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Leftanteriorthalamic.vtkjs">Left anterior thalamic</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Rightanteriorthalamic.vtkjs">Right anterior thalamic</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Leftinferiorthalamic.vtkjs">Left inferior thalamic</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Rightinferiorthalamic.vtkjs">Right inferior thalamic</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Leftsuperiorthalamic.vtkjs">Left superior thalamic</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Rightsuperiorthalamic.vtkjs">Right superior thalamic</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Leftposteriorthalamic.vtkjs">Left posterior thalamic</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/Rightposteriorthalamic.vtkjs">Right posterior thalamic</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftVOF.vtkjs">Left VOF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightVOF.vtkjs">Right VOF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftAntVOF.vtkjs">Left AntVOF</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightAntVOF.vtkjs">Right AntVOF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftVisionU.vtkjs">Left VisionU</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightVisionU.vtkjs">Right VisionU</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightOccipitalU.vtkjs">Right OccipitalU</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftThalamico-spinal.vtkjs">Left Thalamico-spinal</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightThalamico-spinal.vtkjs">Right Thalamico-spinal</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftpArc.vtkjs">Left pArc</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightpArc.vtkjs">Right pArc</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftTPC.vtkjs">Left TPC</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightTPC.vtkjs">Right TPC</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftMdLF-SPL.vtkjs">Left MdLF-SPL</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightMdLF-SPL.vtkjs">Right MdLF-SPL</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftMdLF-Ang.vtkjs">Left MdLF-Ang</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightMdLF-Ang.vtkjs">Right MdLF-Ang</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftSLF1.vtkjs">Left SLF1</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightSLF1.vtkjs">Right SLF1</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftSLF2.vtkjs">Left SLF2</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightSLF2.vtkjs">Right SLF2</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftSLF3.vtkjs">Left SLF3</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightSLF3.vtkjs">Right SLF3</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftILF.vtkjs">Left ILF</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightILF.vtkjs">Right ILF</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftAslant.vtkjs">Left Aslant</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightAslant.vtkjs">Right Aslant</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightLenti2ceb.vtkjs">Right Lenti2ceb</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftLenti2ceb.vtkjs">Left Lenti2ceb</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightRed2Ceb1.vtkjs">Right Red2Ceb1</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftRed2Ceb1.vtkjs">Left Red2Ceb1</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightRed2Ceb2.vtkjs">Right Red2Ceb2</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftRed2Ceb2.vtkjs">Left Red2Ceb2</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightThal2ceb.vtkjs">Right Thal2ceb</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftThal2ceb.vtkjs">Left Thal2ceb</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightContraCorticoPontine.vtkjs">Right ContraCorticoPontine</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftContraCorticoPontine.vtkjs">Left ContraCorticoPontine</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightContraFrontoPontine.vtkjs">Right ContraFrontoPontine</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftContraFrontoPontine.vtkjs">Left ContraFrontoPontine</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightIpsiCorticoPontine.vtkjs">Right IpsiCorticoPontine</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftIpsiCorticoPontine.vtkjs">Left IpsiCorticoPontine</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightIpsiFrontoPontine.vtkjs">Right IpsiFrontoPontine</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftIpsiFrontoPontine.vtkjs">Left IpsiFrontoPontine</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftMeyersLoop.vtkjs">Left Meyers Loop</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightMeyersLoop.vtkjs">Right Meyers Loop</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftBaumsLoop.vtkjs">Left Baums Loop</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightBaumsLoop.vtkjs">Right Baums Loop</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftOpticUnclassified.vtkjs">Left Optic Unclassified</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                             <tr>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightOpticUnclassified.vtkjs">Right Optic Unclassified</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/LeftOpticAccesory.vtkjs">Left Optic Accesory</a></p>
+                                                 </td>
+
+                                                 <td>
+                                                     <p><a href="research/tractogram_atlasing/SceneExplorer.html?fileURL=https://nemo.kiwi/research/tractogram_atlasing/cluster_vtkjs/RightOpticAccesory.vtkjs">Right Optic Accesory</a></p>
+                                                 </td>
+
+                                             </tr>
+
+                                         </table>
+
+                                     </article>
+
+                                 </main>
+
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>

@@ -96,7 +96,14 @@
                      </ul>
                  </nav>
                  <h3 id="h3_colors">Colors</h3>
-                 <p>Define your own color scheme, and stick to it along the whole document. The default TikZ colors tend to be quite kitschy. Below is the palette that I currently use. It is available as a <a href="latex/colors.tex">colors.tex</a> file that I just import into my main document and which redefines some default colors. Do not hesitate to use opacity variations of those colors (<code>blue!20</code> instead of <code>blue</code> for example). This is also shown in the different rows in the picture below. Also do not hesitate to tweak it to your liking, there are a lot of helpful websites out there dedicated to colorscheme design.</p>
+                 <p>I have a <a href="latex/colors.html">dedicated page</a> that list the colors pre-defined when using TikZ as well as some operations allowed under TikZ's color model.</p>
+                 <p>I usually define my own color scheme, and stick to it along the whole document.
+                 The default TikZ colors tend to be quite kitschy.
+                 Below is the palette that I currently use.
+                 It is available as a <a href="latex/colors.tex">colors.tex</a> file that I just import into my main document and which redefines some default colors.
+                 Do not hesitate to use opacity variations of those colors (<code>blue!20</code> instead of <code>blue</code> for example).
+                 This is also shown in the different rows in the picture below.
+                 Also do not hesitate to tweak it to your liking, there are a lot of helpful websites out there dedicated to colorscheme design.</p>
                  <p><img src="latex/color_scheme.svg" alt="The colorscheme that I use in my documents" /></p>
                  <h3 id="h3_lines_and_arrows">Lines and Arrows</h3>
                  <p>The <code>thick</code> and <code>ultra thick</code> parameters tend to make things more pleasant to look at.
@@ -144,8 +151,9 @@
                          need to be re-externalized when their order change (<em>e.g.</em> when inserting a new
                          frame). I still need to figure out a nice workaround for this.</p>
                          <h3 id="h3_programming_aspects_—_loops,_variables">Programming Aspects — Loops, Variables</h3>
-                         <p>The content of this section has been somewhat scary for me for quit a long time,
-                         before I realized that it conveyed additional ways of being lazy. I want to talk about <code>for</code> loops, as well as the use of variables to define quantities.</p>
+                         <h4 id="h4_loops_&amp;_variables">Loops &amp; Variables</h4>
+                         <p>The content of this section has been somewhat scary for me for quit a long time, before I realized that it conveyed additional ways of being lazy.
+                         I want to talk about <code>for</code> loops, as well as the use of variables to define quantities.</p>
                          <p>Using <code>foreach</code> loops is in reality independant of TikZ (since it relies on
                          LaTeX features), but works particularly well in conjunction with TikZ. I point
                          out to the section 88 of the official manual <em>88. Repeating Things</em> for a
@@ -170,158 +178,174 @@
 <!--                      -->                                            node[below=1cm, black] <span class="nb">{</span><span class="s">$</span><span class="nv">\mathvariable</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\x</span><span class="s">$</span><span class="nb">}</span> ;
 <!--                      -->    <span class="nb">}</span>
 <!--                      --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span></code></pre></div>
-                             <p>Here is an example that purposingly showcases more intricate aspects of
-                             <code>foreach</code> loops and variables, and generates the following figure.</p>
+                             <p>Below is an example that purposingly showcases more intricate aspects of
+                             <code>foreach</code> loops and variables and generates the following figure.</p>
                              <figure>
 
                                  <img src="latex/big_loop.svg" alt="A spiral simply generated using foreach statements." width=500px>
 
                                  </figure>
-<!--                          --><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<!--                          -->
-<!--                          -->    <span class="c">% the following is equivalent to defining \col as a counter (see the next loop)</span>
-<!--                          -->    <span class="c">% but this showcases zipped loops</span>
-<!--                          -->    <span class="k">\foreach</span> <span class="k">\color</span> / <span class="k">\col</span> in <span class="nb">{</span>
-<!--                          -->                    blue/0, darkblue/1, red/2, orange/3, green/4,
-<!--                          -->                    palegreen/5, yellow/6, brokenwhite/7, brokengrey/8<span class="nb">}</span> <span class="nb">{</span>
-<!--                          -->        <span class="k">\foreach</span> <span class="k">\alpha</span> [count=<span class="k">\row</span>] in <span class="nb">{</span>100, 97, ..., 30<span class="nb">}</span> <span class="nb">{</span>
-<!--                          -->            <span class="c">% the step (-3) of the loop is infered from the two first values</span>
-<!--                          -->
-<!--                          -->            <span class="c">% random formula to define an angle for the current point and radius</span>
-<!--                          -->            <span class="c">% see that we can perform computations on variables</span>
-<!--                          -->            <span class="k">\def</span> <span class="k">\angle</span> <span class="nb">{</span>180*<span class="k">\row</span>/16 + 30*<span class="k">\col</span><span class="nb">}</span>;
-<!--                          -->            <span class="k">\def</span> <span class="k">\radius</span> <span class="nb">{</span>0.6*<span class="k">\col</span><span class="nb">}</span>;
-<!--                          -->
-<!--                          -->            <span class="c">% define a coordinate (center\color\alpha) (which are expanded to their actual</span>
-<!--                          -->            <span class="c">% value so that we can draw a node it later, and have line from the border</span>
-<!--                          -->            <span class="k">\coordinate</span> (center<span class="k">\color\alpha</span>) at (<span class="nb">{</span><span class="k">\radius*</span>cos(<span class="k">\angle</span><span class="nb">}</span>, <span class="nb">{</span><span class="k">\radius</span> * sin(<span class="k">\angle</span>)<span class="nb">}</span>);
-<!--                          -->
-<!--                          -->            <span class="c">% draw a filled circle node named (circle\color\alpha) centered</span>
-<!--                          -->            <span class="c">% at (center\color\alpha)</span>
-<!--                          -->            <span class="c">% we define a new node so that lines will leave from the edge of</span>
-<!--                          -->            <span class="c">% the circle and not from its center</span>
-<!--                          -->            <span class="k">\node</span><span class="na">[circle, fill=\color!\alpha]</span>
-<!--                          -->                    (circle<span class="k">\color\alpha</span>) at (center<span class="k">\color\alpha</span>) <span class="nb">{}</span>;
-<!--                          -->
-<!--                          -->            <span class="c">% make a straight line of dots (to showcase an if statement)</span>
-<!--                          -->            <span class="k">\ifnum</span> <span class="k">\col</span> = <span class="k">\row</span>
-<!--                          -->                <span class="k">\fill</span><span class="na">[color=\color, xshift=6cm]</span> (0.5*<span class="k">\col</span>, 0) circle (0.2);
-<!--                          -->            <span class="k">\fi</span>
-<!--                          -->        <span class="nb">}</span>
-<!--                          -->    <span class="nb">}</span>
-<!--                          -->
-<!--                          -->    <span class="c">% this showcases a trick to iterate on couples (i-1,i) using the remember keyword</span>
-<!--                          -->    <span class="k">\foreach</span> <span class="k">\color</span><span class="na">[remember=\color as \lastcolor (initially blue)]</span> in
-<!--                          -->                                    <span class="nb">{</span>darkblue, red, orange, green, palegreen,
-<!--                          -->                                     yellow, brokenwhite, brokengrey<span class="nb">}</span> <span class="nb">{</span>
-<!--                          -->        <span class="k">\foreach</span> <span class="k">\alpha</span> in <span class="nb">{</span>100, 97, ..., 30<span class="nb">}</span> <span class="nb">{</span>
-<!--                          -->            <span class="k">\draw</span><span class="na">[ultra thick, color=\lastcolor!\alpha]</span>
-<!--                          -->                    (circle<span class="k">\lastcolor\alpha</span>) -- (circle<span class="k">\color\alpha</span>);
-<!--                          -->        <span class="nb">}</span>
-<!--                          -->    <span class="nb">}</span>
-<!--                          --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span></code></pre></div>
-                                 <p>I recommend using this in conjonction with externalization for rather complex
-                                 figures.</p>
-                                 <h3 id="h3_plots">Plots</h3>
-                                 <p>To generate nice plots of data, I recommmend using a combination of <code>matplotlib</code> and <code>seaborn</code>, and export them to LaTeX compatible plots using <code>tikzplotlib</code>. So the whole pipeline essentially goes as follows and allows to obtain high quality figures fully rendered with TikZ and pgfplots. One advantage of it is that you can tweak things like axis title, legend, ticks, etc, from inside your LaTeX document, without the need to go inside the code that generated the plot.</p>
-<!--                          --><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<!--                          --><span class="kn">import</span> <span class="nn">seaborn</span>
-<!--                          --><span class="kn">import</span> <span class="nn">tikzplotlib</span>
-<!--                          -->
-<!--                          --><span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">()</span> <span class="c1"># applies the seaborn default settings</span>
-<!--                          --><span class="c1"># you can costumize those settings, e.g. to use the colorscheme of your document</span>
-<!--                          -->
-<!--                          --><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">whatever</span><span class="p">)</span>
-<!--                          -->
-<!--                          --><span class="n">tikzplotlib</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;figure.tex&quot;</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># wrap controls the standaloneness of the tex figure</span></code></pre></div>
-                                 <figure>
-                                     <p><img src="latex/some_plot.svg" alt="Some sample plot from the Seaborn examples" /></p>
-                                     <figcaption> A plot fully rendered via LaTeX, obtained from the Seaborn examples</figcaption>
 
-                                     </figure>
-                                     <h3 id="h3_graphs">Graphs</h3>
-                                     <p>To work with graphs, I recommend using <code>networkX</code> to manipulate them and
-                                     <code>network2tikz</code> to export them to TikZ with a nice control over the layout, the
-                                     format, and so on. Moreover, <code>networkX</code> provides many standard algorithms and
-                                     graph-processing pipelines, making it easy to create complex illustrations.</p>
-                                     <h3 id="h3_scaling">Scaling</h3>
-                                     <p>You can handle the size of TikZ figures using the <code>scale</code> options.</p>
-<!--                              --><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=0.6] <span class="c">% you can also directly set xscale and / or yscale</span></code></pre></div>
-                                     <p>The aforementionned <code>scale</code> may break a figure with text, or some fixed-size nodes (this is the case when exporting graph with <code>network2tikz</code> for instance). The following might fix the issue by scaling each and every node. Finding the right amount of <em>scaling</em> for both parameters might require a little bit of tweaking though.</p>
-<!--                              --><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=0.6, every node/.style=<span class="nb">{</span>scale=0.6<span class="nb">}</span>]</code></pre></div>
-                                     <h2 id="h2_beamer_tips">Beamer Tips</h2>
-                                     <nav>
-                                         <ul>
-                                         <li><a href="#h3_aspect_ratio">Aspect Ratio</a></li>
-                                         <li><a href="#h3_slides_template">Slides Template</a></li>
-                                         </ul>
-                                     </nav>
-                                     <h3 id="h3_aspect_ratio">Aspect Ratio</h3>
-                                     <p>On most modern supports, the default beamer image ratio is not optimal and wastes some space. It is easy to switch to another screen ratio, for instance 16:9 using</p>
-<!--                              --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[aspectratio=169]</span><span class="nb">{</span>beamer<span class="nb">}</span></code></pre></div>
-                                     <h3 id="h3_slides_template">Slides Template</h3>
-                                     <p>Teaser. True content coming soon.</p>
-                                     <div class="catalog">
+                                 <details>
 
-                                         <img src="latex/beamer/standard.svg" alt="Standard template." width=150px>
+                                     <summary> Click to see the code generating the figure.</summary>
+<!--                                  --><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--                                  -->
+<!--                                  -->    <span class="c">% the following is equivalent to defining \col as a counter (see the next loop)</span>
+<!--                                  -->    <span class="c">% but this showcases zipped loops</span>
+<!--                                  -->    <span class="k">\foreach</span> <span class="k">\color</span> / <span class="k">\col</span> in <span class="nb">{</span>
+<!--                                  -->                    blue/0, darkblue/1, red/2, orange/3, green/4,
+<!--                                  -->                    palegreen/5, yellow/6, brokenwhite/7, brokengrey/8<span class="nb">}</span> <span class="nb">{</span>
+<!--                                  -->        <span class="k">\foreach</span> <span class="k">\alpha</span> [count=<span class="k">\row</span>] in <span class="nb">{</span>100, 97, ..., 30<span class="nb">}</span> <span class="nb">{</span>
+<!--                                  -->            <span class="c">% the step (-3) of the loop is infered from the two first values</span>
+<!--                                  -->
+<!--                                  -->            <span class="c">% random formula to define an angle for the current point and radius</span>
+<!--                                  -->            <span class="c">% see that we can perform computations on variables</span>
+<!--                                  -->            <span class="k">\def</span> <span class="k">\angle</span> <span class="nb">{</span>180*<span class="k">\row</span>/16 + 30*<span class="k">\col</span><span class="nb">}</span>;
+<!--                                  -->            <span class="k">\def</span> <span class="k">\radius</span> <span class="nb">{</span>0.6*<span class="k">\col</span><span class="nb">}</span>;
+<!--                                  -->
+<!--                                  -->            <span class="c">% define a coordinate (center\color\alpha) (which are expanded to their actual</span>
+<!--                                  -->            <span class="c">% value so that we can draw a node it later, and have line from the border</span>
+<!--                                  -->            <span class="k">\coordinate</span> (center<span class="k">\color\alpha</span>) at (<span class="nb">{</span><span class="k">\radius*</span>cos(<span class="k">\angle</span><span class="nb">}</span>, <span class="nb">{</span><span class="k">\radius</span> * sin(<span class="k">\angle</span>)<span class="nb">}</span>);
+<!--                                  -->
+<!--                                  -->            <span class="c">% draw a filled circle node named (circle\color\alpha) centered</span>
+<!--                                  -->            <span class="c">% at (center\color\alpha)</span>
+<!--                                  -->            <span class="c">% we define a new node so that lines will leave from the edge of</span>
+<!--                                  -->            <span class="c">% the circle and not from its center</span>
+<!--                                  -->            <span class="k">\node</span><span class="na">[circle, fill=\color!\alpha]</span>
+<!--                                  -->                    (circle<span class="k">\color\alpha</span>) at (center<span class="k">\color\alpha</span>) <span class="nb">{}</span>;
+<!--                                  -->
+<!--                                  -->            <span class="c">% make a straight line of dots (to showcase an if statement)</span>
+<!--                                  -->            <span class="k">\ifnum</span> <span class="k">\col</span> = <span class="k">\row</span>
+<!--                                  -->                <span class="k">\fill</span><span class="na">[color=\color, xshift=6cm]</span> (0.5*<span class="k">\col</span>, 0) circle (0.2);
+<!--                                  -->            <span class="k">\fi</span>
+<!--                                  -->        <span class="nb">}</span>
+<!--                                  -->    <span class="nb">}</span>
+<!--                                  -->
+<!--                                  -->    <span class="c">% this showcases a trick to iterate on couples (i-1,i) using the remember keyword</span>
+<!--                                  -->    <span class="k">\foreach</span> <span class="k">\color</span><span class="na">[remember=\color as \lastcolor (initially blue)]</span> in
+<!--                                  -->                                    <span class="nb">{</span>darkblue, red, orange, green, palegreen,
+<!--                                  -->                                     yellow, brokenwhite, brokengrey<span class="nb">}</span> <span class="nb">{</span>
+<!--                                  -->        <span class="k">\foreach</span> <span class="k">\alpha</span> in <span class="nb">{</span>100, 97, ..., 30<span class="nb">}</span> <span class="nb">{</span>
+<!--                                  -->            <span class="k">\draw</span><span class="na">[ultra thick, color=\lastcolor!\alpha]</span>
+<!--                                  -->                    (circle<span class="k">\lastcolor\alpha</span>) -- (circle<span class="k">\color\alpha</span>);
+<!--                                  -->        <span class="nb">}</span>
+<!--                                  -->    <span class="nb">}</span>
+<!--                                  --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span></code></pre></div>
+                                     </details>
+                                     <p>I recommend using this in conjonction with externalization for rather complex
+                                     figures.</p>
+                                     <h4 id="h4_mathematical_expressions">Mathematical Expressions</h4>
+                                     <p>As you can see in the above section, we were able to define variables through mathematical expressions, for example as</p>
+<!--                              --><div class="highlight"><pre><span></span><code><span class="k">\def</span> <span class="k">\angle</span> <span class="nb">{</span>180*<span class="k">\row</span>/16 + 30*<span class="k">\col</span><span class="nb">}</span>;
+<!--                              --><span class="k">\def</span> <span class="k">\radius</span> <span class="nb">{</span>0.6*<span class="k">\col</span><span class="nb">}</span>;
+<!--                              --><span class="k">\coordinate</span> (center) at (<span class="nb">{</span><span class="k">\radius*</span>cos(<span class="k">\angle</span><span class="nb">}</span>, <span class="nb">{</span><span class="k">\radius</span> * sin(<span class="k">\angle</span>)<span class="nb">}</span>);</code></pre></div>
+                                     <p>Those operations are handled by <code>pgfmath</code> under the hood.
+                                     Documentation on those operations is available in section 94 of TikZ's manual (<em>94. Mathematical Operation</em>, under <em>Part VIII. Mathematical and Object-Oriented Engines</em>).
+                                     For easy-reference, here are the basic mathematical functions that can be used in such expressions. Individual documentation is available in
+                                     <em>94.3 Syntax for Mathematical Expressions: Functions</em>.</p>
+                                     <p><code>abs, acos, add, and, array, asin, atan, atan2, bin, ceil, cos, cosec, cosh, cot, deg, depth, dim, div, divide, e, equal, factorial, false, floor, frac, gcd, greater, height, hex, Hex, int, ifthenelse, iseven, isodd, isprime, less, ln, log10, log2, max, min, mod, Mod, multiply, neg, not, notequal, notgreater, notless, oct, or, pi, pow, rad, rand, random, real, rnd, round, scalar, sec, sign, sin, sinh, sqrt, subtract, tan, tanh, true, veclen, width</code></p>
+                                     <h3 id="h3_plots">Plots</h3>
+                                     <p>To generate nice plots of data, I recommmend using a combination of <code>matplotlib</code> and <code>seaborn</code>, and export them to LaTeX compatible plots using <code>tikzplotlib</code>. So the whole pipeline essentially goes as follows and allows to obtain high quality figures fully rendered with TikZ and pgfplots. One advantage of it is that you can tweak things like axis title, legend, ticks, etc, from inside your LaTeX document, without the need to go inside the code that generated the plot.</p>
+<!--                              --><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<!--                              --><span class="kn">import</span> <span class="nn">seaborn</span>
+<!--                              --><span class="kn">import</span> <span class="nn">tikzplotlib</span>
+<!--                              -->
+<!--                              --><span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">()</span> <span class="c1"># applies the seaborn default settings</span>
+<!--                              --><span class="c1"># you can costumize those settings, e.g. to use the colorscheme of your document</span>
+<!--                              -->
+<!--                              --><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">whatever</span><span class="p">)</span>
+<!--                              -->
+<!--                              --><span class="n">tikzplotlib</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;figure.tex&quot;</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># wrap controls the standaloneness of the tex figure</span></code></pre></div>
+                                     <figure>
+                                         <p><img src="latex/some_plot.svg" alt="Some sample plot from the Seaborn examples" /></p>
+                                         <figcaption> A plot fully rendered via LaTeX, obtained from the Seaborn examples</figcaption>
 
-                                             <img src="latex/beamer/figure.svg" alt="Standard template." width=150px>
+                                         </figure>
+                                         <h3 id="h3_graphs">Graphs</h3>
+                                         <p>To work with graphs, I recommend using <code>networkX</code> to manipulate them and
+                                         <code>network2tikz</code> to export them to TikZ with a nice control over the layout, the
+                                         format, and so on. Moreover, <code>networkX</code> provides many standard algorithms and
+                                         graph-processing pipelines, making it easy to create complex illustrations.</p>
+                                         <h3 id="h3_scaling">Scaling</h3>
+                                         <p>You can handle the size of TikZ figures using the <code>scale</code> options.</p>
+<!--                                  --><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=0.6] <span class="c">% you can also directly set xscale and / or yscale</span></code></pre></div>
+                                         <p>The aforementionned <code>scale</code> may break a figure with text, or some fixed-size nodes (this is the case when exporting graph with <code>network2tikz</code> for instance). The following might fix the issue by scaling each and every node. Finding the right amount of <em>scaling</em> for both parameters might require a little bit of tweaking though.</p>
+<!--                                  --><div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=0.6, every node/.style=<span class="nb">{</span>scale=0.6<span class="nb">}</span>]</code></pre></div>
+                                         <h2 id="h2_beamer_tips">Beamer Tips</h2>
+                                         <nav>
+                                             <ul>
+                                             <li><a href="#h3_aspect_ratio">Aspect Ratio</a></li>
+                                             <li><a href="#h3_slides_template">Slides Template</a></li>
+                                             </ul>
+                                         </nav>
+                                         <h3 id="h3_aspect_ratio">Aspect Ratio</h3>
+                                         <p>On most modern supports, the default beamer image ratio is not optimal and wastes some space. It is easy to switch to another screen ratio, for instance 16:9 using</p>
+<!--                                  --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[aspectratio=169]</span><span class="nb">{</span>beamer<span class="nb">}</span></code></pre></div>
+                                         <h3 id="h3_slides_template">Slides Template</h3>
+                                         <p>Teaser. True content coming soon.</p>
+                                         <div class="catalog">
 
-                                                 <img src="latex/beamer/subfigures.svg" alt="Standard template." width=150px>
+                                             <img src="latex/beamer/standard.svg" alt="Standard template." width=150px>
 
-                                                     <img src="latex/beamer/minipages.svg" alt="Standard template." width=150px>
+                                                 <img src="latex/beamer/figure.svg" alt="Standard template." width=150px>
 
-                                                     </div>
-                                                     <h2 id="h2_a_tikz_gallery">A TikZ gallery</h2>
-                                                     <nav>
-                                                         <ul>
-                                                         <li><a href="#h3_basic_elements">Basic Elements</a></li>
-                                                         <li><a href="#h3_more_advanced_figures">Advanced Figures</a></li>
-                                                         <li><a href="#h3_figures_made_by_my_friends">Figures Made By My Friends</a></li>
-                                                         </ul>
-                                                     </nav>
-                                                     <p>This is still a work in progress, there are a lot more figures to come. I will
-                                                     also make the source code for each figure accessible by clicking on them. The
-                                                     source code will be provided as a standalone tex file. It should compile as
-                                                     provided, using the <code>latexmk -pdf source.tex</code> command. The only requirements
-                                                     is that it uses the <a href="latex/colors.tex"><code>colors.tex</code></a> file mentionned earlier,
-                                                     so make sure to have it accessible from your latex source.</p>
-                                                     <h3 id="h3_basic_elements">Basic Elements</h3>
-                                                     <p>Coming soon (collection of basic atomic elements to serve as a quick access list).</p>
-                                                     <h3 id="h3_more_advanced_figures">More Advanced Figures</h3>
-                                                     <div class="catalog">
+                                                     <img src="latex/beamer/subfigures.svg" alt="Standard template." width=150px>
+
+                                                         <img src="latex/beamer/minipages.svg" alt="Standard template." width=150px>
+
+                                                         </div>
+                                                         <h2 id="h2_a_tikz_gallery">A TikZ gallery</h2>
+                                                         <nav>
+                                                             <ul>
+                                                             <li><a href="#h3_basic_elements">Basic Elements</a></li>
+                                                             <li><a href="#h3_more_advanced_figures">Advanced Figures</a></li>
+                                                             <li><a href="#h3_figures_made_by_my_esteemed_colleagues">Figures Made By My Esteemed Colleagues</a></li>
+                                                             </ul>
+                                                         </nav>
+                                                         <p>This is still a work in progress, there are a lot more figures to come. I will
+                                                         also make the source code for each figure accessible by clicking on them. The
+                                                         source code will be provided as a standalone tex file. It should compile as
+                                                         provided, using the <code>latexmk -pdf source.tex</code> command. The only requirements
+                                                         is that it uses the <a href="latex/colors.tex"><code>colors.tex</code></a> file mentionned earlier,
+                                                         so make sure to have it accessible from your latex source.</p>
+                                                         <h3 id="h3_basic_elements">Basic Elements</h3>
+                                                         <p>Coming soon (collection of basic atomic elements to serve as a quick access list).</p>
+                                                         <h3 id="h3_more_advanced_figures">More Advanced Figures</h3>
+                                                         <div class="catalog">
+         <a href=latex/portfolio/time_serie_line_graph.html><img src='latex/portfolio/time_serie_line_graph/time_serie_line_graph.svg' alt='time_serie_line_graph'></a>
          <a href=latex/portfolio/clusters.html><img src='latex/portfolio/clusters/clusters.svg' alt='clusters'></a>
          <a href=latex/portfolio/adjacency_matrix.html><img src='latex/portfolio/adjacency_matrix/adjacency_matrix.svg' alt='adjacency_matrix'></a>
-         <a href=latex/portfolio/time_serie_line_graph.html><img src='latex/portfolio/time_serie_line_graph/time_serie_line_graph.svg' alt='time_serie_line_graph'></a>
-         <a href=latex/portfolio/silhouette.html><img src='latex/portfolio/silhouette/silhouette.svg' alt='silhouette'></a>
-         <a href=latex/portfolio/graph_topology.html><img src='latex/portfolio/graph_topology/graph_topology.svg' alt='graph_topology'></a>
-         <a href=latex/portfolio/geodesic_l2.html><img src='latex/portfolio/geodesic_l2/geodesic_l2.svg' alt='geodesic_l2'></a>
-         <a href=latex/portfolio/fused_gromov_wasserstein.html><img src='latex/portfolio/fused_gromov_wasserstein/fused_gromov_wasserstein.svg' alt='fused_gromov_wasserstein'></a>
          <a href=latex/portfolio/deblai_remblai.html><img src='latex/portfolio/deblai_remblai/deblai_remblai.svg' alt='deblai_remblai'></a>
-         <a href=latex/portfolio/sphere_manifold.html><img src='latex/portfolio/sphere_manifold/sphere_manifold.svg' alt='sphere_manifold'></a>
          <a href=latex/portfolio/graph_distance.html><img src='latex/portfolio/graph_distance/graph_distance.svg' alt='graph_distance'></a>
+         <a href=latex/portfolio/fused_gromov_wasserstein.html><img src='latex/portfolio/fused_gromov_wasserstein/fused_gromov_wasserstein.svg' alt='fused_gromov_wasserstein'></a>
          <a href=latex/portfolio/graph_curvature.html><img src='latex/portfolio/graph_curvature/graph_curvature.svg' alt='graph_curvature'></a>
-                                                     </div>
-                                                     <h3 id="h3_figures_made_by_my_friends">Figures Made By My Friends</h3>
-         <h4 id="h4_yoann">Yoann</h4>
-         <p>Here are some images by <a href="http://perso.ens-lyon.fr/yoann.coudert-osmont/">Yoann Coudert -- Osmont</a>.</p>
+         <a href=latex/portfolio/sphere_manifold.html><img src='latex/portfolio/sphere_manifold/sphere_manifold.svg' alt='sphere_manifold'></a>
+         <a href=latex/portfolio/graph_topology.html><img src='latex/portfolio/graph_topology/graph_topology.svg' alt='graph_topology'></a>
+         <a href=latex/portfolio/silhouette.html><img src='latex/portfolio/silhouette/silhouette.svg' alt='silhouette'></a>
+         <a href=latex/portfolio/geodesic_l2.html><img src='latex/portfolio/geodesic_l2/geodesic_l2.svg' alt='geodesic_l2'></a>
+                                                         </div>
+                                                         <h3 id="h3_figures_made_by_my_esteemed_colleagues">Figures Made By My Esteemed Colleagues</h3>
+                                                         <p>Here is a collection of figures that colleagues have kindly offered to share here.</p>
+         <h4 id="h4_yoann_coudert_—_osmont">Yoann Coudert — Osmont</h4>
+         <p>Here are some images by <a href="http://perso.ens-lyon.fr/yoann.coudert-osmont/">Yoann Coudert — Osmont</a>.</p>
          
          <div class="catalog">
-                  <a href=latex/friends/yoann/laplace_triangle.html><img src='latex/friends/yoann/laplace_triangle/laplace_triangle.svg' alt='laplace_triangle'></a>
                   <a href=latex/friends/yoann/wasserstein.html><img src='latex/friends/yoann/wasserstein/wasserstein.svg' alt='wasserstein'></a>
+                  <a href=latex/friends/yoann/laplace_triangle.html><img src='latex/friends/yoann/laplace_triangle/laplace_triangle.svg' alt='laplace_triangle'></a>
          </div>
          
-         <h4 id="h4_amadeus">Amadeus</h4>
+         <h4 id="h4_amadeus_reinald">Amadeus Reinald</h4>
          <p>Here are some images by <a href="http://perso.ens-lyon.fr/amadeus.reinald/">Amadeus Reinald</a>.</p>
          
          <div class="catalog">
-                  <a href=latex/friends/amadeus/differing_arcs.html><img src='latex/friends/amadeus/differing_arcs/differing_arcs.svg' alt='differing_arcs'></a>
                   <a href=latex/friends/amadeus/bipartition.html><img src='latex/friends/amadeus/bipartition/bipartition.svg' alt='bipartition'></a>
+                  <a href=latex/friends/amadeus/differing_arcs.html><img src='latex/friends/amadeus/differing_arcs/differing_arcs.svg' alt='differing_arcs'></a>
          </div>
          
-                                                 </article>
+                                                     </article>
 
-                                             </main>
+                                                 </main>
 
 
     <script data-goatcounter="https://nemof.goatcounter.com/count"

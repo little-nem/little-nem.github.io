@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Nemo Fournier</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+        <aside>
+            <header>
+                <img
+                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                                       0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                           background-color: #ffffff"
+                    src="../images/photo_nemo.webp">
+                <h1> <a href="../index.html">nemo.fournier</a> </h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <h3>
+                            <a href="../resume.pdf"> resume </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../studies.html"> studies </a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="https://github.com/little-nem"> github </a> <!-- external -->
+                        </h3>
+                    </li>
+                    <li>
+                        <h3>
+                            <a href="../latex.html"> latex tips </a>
+                        </h3>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <div class="catalog_logo">
+                    <a href="../https://www.aramislab.fr/"><img src="../images/logos/aramis.png" height="30"></a>
+                    <a href="../https://institutducerveau-icm.org/"><img src="../images/logos/icm.png" height="30"></a>
+                    <a href="../https://www.sorbonne-universite.fr/"><img src="../images/logos/sorbonne.png" height="30"></a>
+                </div>
+
+                <i>All rights reserved for the banner image, 2020.</i>
+            </footer>
+        </aside>
+
+         <main>
+
+             <header>
+                 <h1 id="h1_colors_in_tikz">Colors in Tikz</h1>
+                 <p>This page is a summary of how colors work in Tikz, and provide list of available colors.
+                 TikZ uses the <a href="https://www.ctan.org/pkg/xcolor"><code>xcolor</code> package</a> under the hood.
+                 This package implements a lot of color models, and allows to tweak multiple parameters.
+                 I refer to its <a href="http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.pdf">extensive documentation</a> for an exhaustive overview of functionalities.</p>
+                 <p>Going further than LaTeX considerations, I also want to point-out that if you ever need a simple reference covering color spaces, conversion between those spaces, standard operations on colors (blending, etc) from a computational point of view, this package's documentation can also come quite handy.</p>
+                 <h2 id="h2_table_of_contents">Table of contents</h2>
+                 <nav>
+                     <ul>
+                     <li><a href="#h2_tikz_color_list">TikZ Color List</a></li>
+                     <li><a href="#h2_color_manipulation">Color Manipulation</a></li>
+                     </ul>
+                 </nav>
+
+             </header>
+
+             <article>
+                 <h2 id="h2_tikz_color_list">TikZ Color List</h2>
+                 <p>In the general <a href="../latex.html">LaTeX tips page</a>, I provide a simple <a href="colors.tex"><code>colors.tex</code></a> file that overides some of the default colors and provide a few new ones.
+                 This file is not intended to provide a large spectrum of colors and I encourage everyone to tweak it and define their own colorscheme, based on their needs.
+                 In what follows, I will give a few details on which are the colors and colors operations provided by TikZ (through the <code>xcolor</code> package).</p>
+                 <h3 id="h3_default_list">Default List</h3>
+                 <p>TikZ takes care of loading <code>xcolor</code> during its import, and uses <code>xcolor</code>'s default settings.
+                 This provides the user with a list of basic colors (defined in <code>xcolor.sty</code>) available at all time and which can be used by refering to their name:</p>
+                 <p><code>black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow</code></p>
+                 <p>This list can found in the <a href="http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.pdf"><code>xcolor</code> documentation</a> (section <em>4. Colors by Name</em>).</p>
+                 <img src="colors/base_colors.svg" alt="Default available colors in TikZ.">
+
+                     <details>
+
+                         <summary> Source code for the above image. </summary>
+<!--                      --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>standalone<span class="nb">}</span>
+<!--                      -->
+<!--                      --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<!--                      --><span class="k">\usetikzlibrary</span><span class="nb">{</span>calc<span class="nb">}</span> <span class="c">% to compute rectangle coords on the fly</span>
+<!--                      --><span class="k">\usetikzlibrary</span><span class="nb">{</span>positioning<span class="nb">}</span> <span class="c">% for below of=</span>
+<!--                      --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--                      -->
+<!--                      --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--                      -->
+<!--                      --><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--                      -->    <span class="k">\def</span> <span class="k">\columnWidth</span> <span class="nb">{</span>6<span class="nb">}</span>;
+<!--                      -->    <span class="k">\def</span> <span class="k">\baseWidth</span> <span class="nb">{</span>0.5cm<span class="nb">}</span>;
+<!--                      -->    <span class="k">\def</span> <span class="k">\baseHeight</span> <span class="nb">{</span>0.25cm<span class="nb">}</span>;
+<!--                      -->
+<!--                      -->    <span class="k">\foreach</span> <span class="k">\color</span> [count=<span class="k">\i</span> from 0] in <span class="nb">{</span>black, blue, brown, cyan, darkgray, gray,
+<!--                      -->                                         green, lightgray, lime, magenta, olive,
+<!--                      -->                                         orange, pink, purple, red, teal, violet,
+<!--                      -->                                         yellow<span class="nb">}</span> <span class="nb">{</span>
+<!--                      -->
+<!--                      -->        <span class="k">\coordinate</span> (center<span class="nb">_</span><span class="k">\color</span>)
+<!--                      -->                        at (<span class="nb">{</span>2*mod(<span class="k">\i</span>, <span class="k">\columnWidth</span>)<span class="nb">}</span>, <span class="nb">{</span>1.5*div(<span class="k">\i</span>, <span class="k">\columnWidth</span>)<span class="nb">}</span>);
+<!--                      -->        <span class="k">\coordinate</span> (rectangle<span class="nb">_</span>bottom<span class="nb">_</span><span class="k">\color</span>)
+<!--                      -->                        at (<span class="s">$</span><span class="o">(</span><span class="nb">center_</span><span class="nv">\color</span><span class="o">)</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="o">(</span><span class="nv">\baseWidth</span><span class="nb">, </span><span class="nv">\baseHeight</span><span class="o">)</span><span class="s">$</span>);
+<!--                      -->        <span class="k">\coordinate</span> (rectangle<span class="nb">_</span>top<span class="nb">_</span><span class="k">\color</span>)
+<!--                      -->                        at (<span class="s">$</span><span class="o">(</span><span class="nb">center_</span><span class="nv">\color</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="nv">\baseWidth</span><span class="nb">, </span><span class="nv">\baseHeight</span><span class="o">)</span><span class="s">$</span>);
+<!--                      -->
+<!--                      -->        <span class="k">\draw</span><span class="na">[fill=\color, black]</span> (rectangle<span class="nb">_</span>bottom<span class="nb">_</span><span class="k">\color</span>) rectangle (rectangle<span class="nb">_</span>top<span class="nb">_</span><span class="k">\color</span>);
+<!--                      -->        <span class="k">\node</span><span class="na">[below=0.5cm of center_\color]</span> <span class="nb">{</span><span class="k">\color</span><span class="nb">}</span>;
+<!--                      -->    <span class="nb">}</span>
+<!--                      --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--                      -->
+<!--                      --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+                         </details>
+                         <h3 id="h3_more_color_options">More Color Options</h3>
+                         <p>As you might discover when going through <code>xcolor</code>'s manual, more color are available assuming you manually load the package with the correct option.
+                         Among those options are</p>
+                         <ul>
+                         <li><code>dvipsnames</code> that adds a set of 68 colors defined under the <em>cmyk</em> color model and which follow the <code>dvips</code> driver</li>
+                         <li><code>svgnames</code> that adds a set of 151 colors (with a few duplicate) defined under the <em>rgb</em> color model and originate from the SVG 1.1 specification</li>
+                         <li><code>x11names</code> that adds a set of 317 colors defined under the <em>rgb</em> color model</li>
+                         </ul>
+                         <p>For instance, when manually importing the <code>xcolor</code> package <em>before</em> TikZ using the <code>dvipsnames</code> option</p>
+<!--                  --><div class="highlight"><pre><span></span><code><span class="k">\usepackage</span><span class="na">[dvipsnames]</span><span class="nb">{</span>xcolor<span class="nb">}</span>
+<!--                  --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span></code></pre></div>
+                         <p>The user can now access the following colors (note the capitalized first letter):</p>
+                         <p><code>Apricot, Aquamarine, Bittersweet, Black, Blue, BlueGreen, BlueViolet, BrickRed, Brown, BurntOrange, CadetBlue, CarnationPink, Cerulean, CornflowerBlue, Cyan, Dandelion, DarkOrchid, Emerald, ForestGreen, Fuchsia, Goldenrod, Gray, Green, GreenYellow, JungleGreen, Lavender, LimeGreen, Magenta, Mahogany, Maroon, Melon, MidnightBlue, Mulberry, NavyBlue, OliveGreen, Orange, OrangeRed, Orchid, Peach, Periwinkle, PineGreen, Plum, ProcessBlue, Purple, RawSienna, Red, RedOrange, RedViolet, Rhodamine, RoyalBlue, RoyalPurple, RubineRed, Salmon, SeaGreen, Sepia, SkyBlue, SpringGreen, Tan, TealBlue, Thistle, Turquoise, Violet, VioletRed, White, WildStrawberry, Yellow, YellowGreen, YellowOrange</code></p>
+                         <img src="colors/dvipsnames_colors.svg" alt="Default available colors in TikZ.">
+
+                             <details>
+
+                                 <summary> Source code for the above image. </summary>
+<!--                              --><div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>standalone<span class="nb">}</span>
+<!--                              -->
+<!--                              --><span class="k">\usepackage</span><span class="na">[dvipsnames]</span><span class="nb">{</span>xcolor<span class="nb">}</span>
+<!--                              --><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<!--                              -->
+<!--                              --><span class="k">\usetikzlibrary</span><span class="nb">{</span>calc<span class="nb">}</span> <span class="c">% to compute rectangle coords on the fly</span>
+<!--                              --><span class="k">\usetikzlibrary</span><span class="nb">{</span>positioning<span class="nb">}</span> <span class="c">% for below of=</span>
+<!--                              --><span class="k">\usepackage</span><span class="nb">{</span>kpfonts<span class="nb">}</span>
+<!--                              -->
+<!--                              -->
+<!--                              --><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<!--                              -->
+<!--                              --><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--                              -->    <span class="k">\def</span> <span class="k">\columnWidth</span> <span class="nb">{</span>7<span class="nb">}</span>;
+<!--                              -->    <span class="k">\def</span> <span class="k">\baseWidth</span> <span class="nb">{</span>0.5cm<span class="nb">}</span>;
+<!--                              -->    <span class="k">\def</span> <span class="k">\baseHeight</span> <span class="nb">{</span>0.25cm<span class="nb">}</span>;
+<!--                              -->
+<!--                              -->    <span class="k">\foreach</span> <span class="k">\color</span> [count=<span class="k">\i</span> from 0] in <span class="nb">{</span>
+<!--                              -->        Apricot, Aquamarine, Bittersweet, Black, Blue, BlueGreen, BlueViolet, BrickRed,
+<!--                              -->        Brown, BurntOrange, CadetBlue, CarnationPink, Cerulean, CornflowerBlue, Cyan,
+<!--                              -->        Dandelion, DarkOrchid, Emerald, ForestGreen, Fuchsia, Goldenrod, Gray, Green,
+<!--                              -->        GreenYellow, JungleGreen, Lavender, LimeGreen, Magenta, Mahogany, Maroon, Melon,
+<!--                              -->        MidnightBlue, Mulberry, NavyBlue, OliveGreen, Orange, OrangeRed, Orchid, Peach,
+<!--                              -->        Periwinkle, PineGreen, Plum, ProcessBlue, Purple, RawSienna, Red, RedOrange,
+<!--                              -->        RedViolet, Rhodamine, RoyalBlue, RoyalPurple, RubineRed, Salmon, SeaGreen,
+<!--                              -->        Sepia, SkyBlue, SpringGreen, Tan, TealBlue, Thistle, Turquoise, Violet,
+<!--                              -->        VioletRed, White, WildStrawberry, Yellow, YellowGreen, YellowOrange<span class="nb">}</span> <span class="nb">{</span>
+<!--                              -->
+<!--                              -->        <span class="k">\coordinate</span> (center<span class="nb">_</span><span class="k">\color</span>)
+<!--                              -->                        at (<span class="nb">{</span>2.5*mod(<span class="k">\i</span>, <span class="k">\columnWidth</span>)<span class="nb">}</span>, <span class="nb">{</span>1.5*div(<span class="k">\i</span>, <span class="k">\columnWidth</span>)<span class="nb">}</span>);
+<!--                              -->        <span class="k">\coordinate</span> (rectangle<span class="nb">_</span>bottom<span class="nb">_</span><span class="k">\color</span>)
+<!--                              -->                        at (<span class="s">$</span><span class="o">(</span><span class="nb">center_</span><span class="nv">\color</span><span class="o">)</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="o">(</span><span class="nv">\baseWidth</span><span class="nb">, </span><span class="nv">\baseHeight</span><span class="o">)</span><span class="s">$</span>);
+<!--                              -->        <span class="k">\coordinate</span> (rectangle<span class="nb">_</span>top<span class="nb">_</span><span class="k">\color</span>)
+<!--                              -->                        at (<span class="s">$</span><span class="o">(</span><span class="nb">center_</span><span class="nv">\color</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="nv">\baseWidth</span><span class="nb">, </span><span class="nv">\baseHeight</span><span class="o">)</span><span class="s">$</span>);
+<!--                              -->
+<!--                              -->        <span class="k">\draw</span><span class="na">[fill=\color, black]</span> (rectangle<span class="nb">_</span>bottom<span class="nb">_</span><span class="k">\color</span>) rectangle (rectangle<span class="nb">_</span>top<span class="nb">_</span><span class="k">\color</span>);
+<!--                              -->        <span class="k">\node</span><span class="na">[below=0.5cm of center_\color]</span> <span class="nb">{</span><span class="k">\color</span><span class="nb">}</span>;
+<!--                              -->    <span class="nb">}</span>
+<!--                              --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<!--                              -->
+<!--                              --><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+                                 </details>
+                                 <p>I refer the reader to section 4 of <code>xcolor</code>'s manual for an exhaustive listing under all options.
+                                 I also refer to the documentation (2.15.1) to handle name clashing if using more than one color option at once.</p>
+                                 <h2 id="h2_color_manipulation">Color Manipulation</h2>
+                                 <p>The <code>xcolor</code> package defines general and powerful expressions dedicated to working with colors, whose “grammar” is explicited in section 2 of the manual.
+                                 Precise details are provided in the documentation, but for easy-reference here are some of the features enabled by those expressions.</p>
+                                 <h3 id="h3_alpha_transparency">Alpha Transparency</h3>
+                                 <p>It is easy to control the transparency of colors. The syntax is as follow</p>
+<!--                          --><div class="highlight"><pre><span></span><code>color!alpha</code></pre></div>
+                                 <p>With <code>color</code> refering to an already defined color and <code>alpha</code> being an integer between <code>0</code> and <code>100</code>. For example:</p>
+<!--                          --><div class="highlight"><pre><span></span><code>red!20  <span class="c">% red with 20% opacity</span></code></pre></div>
+                                 <p>Which can be directly used inside of any TikZ drawing command.</p>
+                                 <h3 id="h3_color_blending">Color Blending</h3>
+                                 <p>There is a simple syntax that allows to define color blends on the fly.</p>
+<!--                          --><div class="highlight"><pre><span></span><code>colorA!alpha!colorB</code></pre></div>
+                                 <p>Where <code>colorA</code> and <code>colorB</code> refer to colors that will be blended, using <code>alpha</code>% of <code>colorA</code> and <code>(100-alpha)</code>% of <code>colorB</code>.</p>
+<!--                          --><div class="highlight"><pre><span></span><code>blue!45!red  <span class="c">% a blend of 45% of blue and 55% of red</span></code></pre></div>
+                                 <p>Once again, I refer to the documentation for details on the “blending operation” meaning in color spaces.</p>
+                             </article>
+
+                         </main>
+
+
+    <script data-goatcounter="https://nemof.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script> <!-- external -->
+    </body>
+</html>
