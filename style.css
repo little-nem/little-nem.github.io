@@ -49,9 +49,9 @@ aside {
         grid-template-areas:
             "sidebar-header sidebar-nav"
         ;
-        align-items: center;    
+        align-items: center;
     }
-    
+
     aside > header {
         margin-left: 2em;
     }
@@ -61,7 +61,7 @@ aside {
     aside > footer {
         display: none;
     }
-    
+
     body {
         grid-template-columns: auto;
         grid-template-areas:
@@ -69,11 +69,10 @@ aside {
         "main-body"
         ;
     }
-        
+
     aside  ul > li {
         display: inline-block;
         margin: 20px
-    /* You can also add some margins here to make it look prettier */
     }
 }
 
