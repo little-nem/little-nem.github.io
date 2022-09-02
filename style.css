@@ -47,9 +47,11 @@ aside {
 @media (max-width: 768px) {
     aside {
         grid-template-areas:
-            "sidebar-header sidebar-nav"
+            "sidebar-header"
+            "sidebar-nav"
         ;
         align-items: center;
+        grid-template-rows: auto 1fr;
     }
 
     aside > header {
@@ -63,16 +65,17 @@ aside {
     }
 
     body {
-        grid-template-columns: auto;
         grid-template-areas:
-        "sidebar"
-        "main-body"
-        ;
+            "sidebar"
+            "main-body";
+        grid-template-columns: auto;
+        grid-template-rows: 1fr 15fr .;
+
     }
 
     aside  ul > li {
         display: inline-block;
-        margin: 20px
+        margin: 0 10px 0;
     }
 }
 
