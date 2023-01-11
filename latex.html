@@ -144,13 +144,33 @@
 <!--                  --><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 <!--                  -->    ...
 <!--                  --><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span></code></pre></div>
+                         <h4 id="h4_externalization_and_overleaf">Externalization and Overleaf</h4>
                          <p>Also note that Overleaf has some special rules for using locally pre-compiled figures (<em>cf</em> this <a href="https://fr.overleaf.com/learn/latex/Questions/I_have_a_lot_of_tikz,_matlab2tikz_or_pgfplots_figures,_so_I%27m_getting_a_compilation_timeout._Can_I_externalise_my_figures%3F#Generating_the_drawings_locally">documentation</a>). Basically, pre-compiled files should start by <code>output-</code>, so you should set the externalization plugin with something in the spirit of:</p>
 <!--                  --><div class="highlight"><pre><span></span><code><span class="k">\usetikzlibrary</span><span class="nb">{</span>external<span class="nb">}</span>
 <!--                  --><span class="k">\tikzexternalize</span><span class="na">[prefix=compiled_figures/output-]</span></code></pre></div>
+                         <h4 id="h4_externalization_and_beamer">Externalization and Beamer</h4>
                          <p>Beware that using externalization for Beamer document can lead to slow
                          compilations, since many beamer-specific elements will be externalized and will
                          need to be re-externalized when their order change (<em>e.g.</em> when inserting a new
-                         frame). I still need to figure out a nice workaround for this.</p>
+                         frame).</p>
+                         <p>Yunqi Shao pointed out to me a solution to this issue, using the <code>only named</code>
+                         option of the <code>external</code> TikZ library. A useful wrapper can be written as follows:</p>
+<!--                  --><div class="highlight"><pre><span></span><code><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<!--                  --><span class="k">\usetikzlibrary</span><span class="nb">{</span>external<span class="nb">}</span>
+<!--                  --><span class="k">\tikzexternalize</span><span class="na">[prefix=build/,only named=true]</span>
+<!--                  --><span class="k">\usepackage</span><span class="nb">{</span>tikzscale<span class="nb">}</span>
+<!--                  -->
+<!--                  --><span class="k">\newcommand</span><span class="nb">{</span><span class="k">\includetikz</span><span class="nb">}</span>[2][]<span class="nb">{</span><span class="c">%</span>
+<!--                  -->  <span class="k">\tikzsetnextfilename</span><span class="nb">{</span>#2<span class="nb">}</span><span class="c">%</span>
+<!--                  -->  <span class="k">\includegraphics</span><span class="na">[#1]</span><span class="nb">{</span>tikz/#2.tikz<span class="nb">}</span><span class="c">%</span>
+<!--                  --><span class="nb">}</span></code></pre></div>
+                         <p>Which can be used to include figures stored in a <code>tikz/</code> folder, as follows:</p>
+<!--                  --><div class="highlight"><pre><span></span><code><span class="k">\includetikz</span><span class="na">[0.3\textwidth]</span><span class="nb">{</span>figure.tikz<span class="nb">}</span></code></pre></div>
+                         <p>This will include the figure whose TikZ code is in <code>tikz/figure.tikz</code>, scale it
+                         accordingly to the provided option (thanks to the <code>tikzscale</code> package), and name it
+                         so that it is externalized. Beacause Beamer elements are not named, they won't be
+                         externalized and therefore only the <em>heavy</em> figures included with <code>\includetikz</code>
+                         will be externalized.</p>
                          <h3 id="h3_programming_aspects_—_loops,_variables">Programming Aspects — Loops, Variables</h3>
                          <h4 id="h4_loops_&amp;_variables">Loops &amp; Variables</h4>
                          <p>The content of this section has been somewhat scary for me for quit a long time, before I realized that it conveyed additional ways of being lazy.
