@@ -153,8 +153,11 @@
                          compilations, since many beamer-specific elements will be externalized and will
                          need to be re-externalized when their order change (<em>e.g.</em> when inserting a new
                          frame).</p>
-                         <p>Yunqi Shao pointed out to me a solution to this issue, using the <code>only named</code>
-                         option of the <code>external</code> TikZ library. A useful wrapper can be written as follows:</p>
+                         <p>Yunqi Shao pointed out to me a solution to this issue, adapted from <a href="https://tex.stackexchange.com/questions/98994/externalize-only-some-pictures#comment1437190_98996">this
+                         StackOverflow
+                         answer</a>,
+                         using the <code>only named</code> option of the <code>external</code> TikZ library. A useful wrapper
+                         can be written as follows:</p>
 <!--                  --><div class="highlight"><pre><span></span><code><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
 <!--                  --><span class="k">\usetikzlibrary</span><span class="nb">{</span>external<span class="nb">}</span>
 <!--                  --><span class="k">\tikzexternalize</span><span class="na">[prefix=build/,only named=true]</span>
